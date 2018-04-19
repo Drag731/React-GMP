@@ -1,0 +1,2 @@
+webpackHotUpdate(0,{5:function(e,t,l){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var u,a=l(0),d=(u=a)&&u.__esModule?u:{default:u};t.default=function(){return d.default.createElement("h1",null,"Hello World!")}}});
+//# sourceMappingURL=../main.map

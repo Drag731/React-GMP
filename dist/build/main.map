@@ -1,0 +1,1 @@
+{"version":3,"file":"hot/hot-update.js","sources":["webpack:///./src/components/container.js"],"sourcesContent":["//This will be inside src/components\r\n\r\nimport React, { Component } from 'react';\r\n\r\nconst Container = () => {\r\n    return <h1>Hello World!</h1>\r\n};\r\n\r\nexport default Container;\r\n"],"mappings":"AAEA","sourceRoot":""}
