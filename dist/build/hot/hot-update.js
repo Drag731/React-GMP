@@ -1,2 +1,2 @@
-webpackHotUpdate(0,{5:function(e,t,l){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var u,a=l(0),d=(u=a)&&u.__esModule?u:{default:u};t.default=function(){return d.default.createElement("h1",null,"Hello World!")}}});
+webpackHotUpdate(0,{15:function(e,t,u){"use strict";var l=d(u(0)),n=d(u(13)),a=d(u(5));function d(e){return e&&e.__esModule?e:{default:e}}n.default.render(l.default.createElement(a.default,null),document.getElementById("root"))},5:function(e,t,u){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var l,n=u(0),a=(l=n)&&l.__esModule?l:{default:l};u(20);t.default=function(){return a.default.createElement("h1",{className:"xxx"},"Hello World!!!")}}});
 //# sourceMappingURL=../main.map
