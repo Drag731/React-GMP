@@ -1,6 +1,9 @@
 const publicPath = '/dist/build/';
 const path = require('path');
 const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 
 module.exports = {
     context: path.join(__dirname, 'src'),
@@ -15,6 +18,22 @@ module.exports = {
     resolve: {
         extensions: ['.js', '.jsx', '.scss', '.css']
     },
+    optimization: {
+        minimizer: [
+            new UglifyJsPlugin({
+                uglifyOptions: {
+                    cache: true,
+                    parallel: true,
+                    uglifyOptions: {
+                        compress: false,
+                        ecma: 6,
+                        mangle: true
+                    },
+                    sourceMap: true
+                }
+            })
+        ]
+    },
     plugins: [
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, "./src/index.html")
@@ -23,16 +42,8 @@ module.exports = {
             minimize: true,
             debug: false
         }),
-        new webpack.optimize.UglifyJsPlugin({
-            beautify: false,
-            mangle: {
-                screw_ie8: true,
-                keep_fnames: true
-            },
-            compress: {
-                screw_ie8: true
-            },
-            comments: false
+        new ExtractTextPlugin({
+            filename: "style.css"
         })
     ],
     module: {
