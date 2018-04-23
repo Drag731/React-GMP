@@ -13,8 +13,6 @@ module.exports = {
         filename: '[name].bundle.js',
         publicPath: publicPath,
         sourceMapFilename: '[name].map',
-        hotUpdateChunkFilename: 'hot/hot-update.js',
-        hotUpdateMainFilename: 'hot/hot-update.json'
     },
     devtool: 'eval',
     plugins: [
@@ -22,8 +20,10 @@ module.exports = {
             template: path.resolve(__dirname, "./src/index.html")
         }),
         new webpack.HotModuleReplacementPlugin(),
+        new webpack.NamedModulesPlugin(),
         new ExtractTextPlugin({
-            filename: "style.css"
+            filename: "style.css",
+            disable: false
         })
     ],
     resolve: {
@@ -47,10 +47,7 @@ module.exports = {
         rules: [
             {
                 test: /\.s?css$/,
-                use: ExtractTextPlugin.extract({
-                    fallback: "style-loader",
-                    use: ["css-loader", "sass-loader"]
-                })
+                use: ["style-loader", "css-loader", "sass-loader"]
             },
             {
                 test: /\.(png|svg|jpg|gif)$/,
