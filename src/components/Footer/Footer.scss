@@ -1,0 +1,9 @@
+.footer {
+  background-color: black;
+  margin: 30px auto 0;
+  max-width: 1000px;
+  &__wrap {
+    padding: 15px 30px;
+    color: red;
+  }
+}
