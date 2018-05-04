@@ -92,7 +92,6 @@ class MainPage extends React.Component {
         return (
             <ErrorBoundary>
                 <React.Fragment>
-
                         <div className="main-page container">
                             <HeaderBlock
                                 handleSearch={this.handleSearch}
@@ -113,7 +112,6 @@ class MainPage extends React.Component {
 
                             }
                         </div>
-
                 </React.Fragment>
             </ErrorBoundary>
         )

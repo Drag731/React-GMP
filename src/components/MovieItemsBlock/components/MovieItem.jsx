@@ -9,6 +9,7 @@ const MovieItem = ({item, reload=((id) => true)}) => (
         <div className="b-item__title-wrap">
             <Link
                 to={`/filmzilla/description/${item.id}`}
+                className="b-item__title-link"
                 onClick={() => reload(item.id)}
             >
                 <span className="b-item__title-text">{item.title}</span>
