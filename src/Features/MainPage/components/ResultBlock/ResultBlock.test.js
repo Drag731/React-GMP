@@ -8,6 +8,19 @@ import ResultBlock from './ResultBlock.jsx'
 configure({ adapter: new Adapter() });
 
 describe('<ResultBlock  />', () => {
+    it('Snapshot one', () => {
+        const handleReleaseDateSort = jest.fn();
+        const handleRatingSort = jest.fn();
+        const total = 1;
+        const tree = renderer
+            .create(<ResultBlock
+                handleReleaseDateSort={handleReleaseDateSort}
+                handleRatingSort={handleRatingSort}
+                total={total}
+            />)
+            .toJSON();
+        expect(tree).toMatchSnapshot();
+    });
     it('Renders ResultBlock component', () => {
         const handleReleaseDateSort = jest.fn();
         const handleRatingSort = jest.fn();

@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ResultBlock  /> Snapshot one 1`] = `
+<div
+  className="main-page__result b-result"
+>
+  <div
+    className="b-result__text-wrap"
+  >
+    <span
+      className="b-result__text"
+    >
+      1
+       movies found
+    </span>
+  </div>
+  <div
+    className="b-result__sort-wrap"
+  >
+    <span
+      className="b-result__sort-text"
+    >
+      Sort by:
+    </span>
+    <span
+      className="b-result__sort-item"
+      onClick={[MockFunction]}
+    >
+      release date
+    </span>
+    <span
+      className="b-result__sort-item"
+      onClick={[MockFunction]}
+    >
+      rating
+    </span>
+  </div>
+</div>
+`;

@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<MovieItem  /> Snapshot one 1`] = `
+<div
+  className="movie-items__item b-item"
+>
+  <div
+    className="b-item__img-wrap"
+  >
+    <img
+      alt=""
+      className="b-item__img-pic"
+      src="http"
+    />
+  </div>
+  <div
+    className="b-item__title-wrap"
+  >
+    <a
+      className="b-item__title-link"
+      href="/filmzilla/description/1"
+      onClick={[Function]}
+    >
+      <span
+        className="b-item__title-text"
+      >
+        title
+      </span>
+    </a>
+    <span
+      className="b-item__title-year"
+    >
+      2001
+    </span>
+  </div>
+  <div
+    className="b-item__ganre-wrap"
+  >
+    <span
+      className="b-item__ganre-text"
+    >
+      Comedy
+    </span>
+  </div>
+</div>
+`;

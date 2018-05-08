@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<MovieItemsBlock  /> Snapshot one 1`] = `
+<div
+  className="movie-items"
+/>
+`;
+
+exports[`<MovieItemsBlock  /> Snapshot two 1`] = `
+<div
+  className="movie-items"
+>
+  <div
+    className="movie-items__item b-item"
+  >
+    <div
+      className="b-item__img-wrap"
+    >
+      <img
+        alt=""
+        className="b-item__img-pic"
+        src="https://image.tmdb.org/t/p/w500/ldoY4fTZkGISMidNw60GHoNdgP8.jpg"
+      />
+    </div>
+    <div
+      className="b-item__title-wrap"
+    >
+      <a
+        className="b-item__title-link"
+        href="/filmzilla/description/447365"
+        onClick={[Function]}
+      >
+        <span
+          className="b-item__title-text"
+        >
+          Guardians of the Galaxy Vol. 3
+        </span>
+      </a>
+      <span
+        className="b-item__title-year"
+      >
+        2020-05-01
+      </span>
+    </div>
+    <div
+      className="b-item__ganre-wrap"
+    >
+      <span
+        className="b-item__ganre-text"
+      >
+        Action
+        Adventure
+        Science Fiction
+      </span>
+    </div>
+  </div>
+</div>
+`;

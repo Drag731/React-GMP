@@ -16,6 +16,23 @@ describe('<HeaderInfo  />', () => {
         overview: 'overview'
     };
 
+    it('Snapshot one', () => {
+        const tree = renderer
+            .create(<HeaderInfo
+                obj={obj}
+            />)
+            .toJSON();
+        expect(tree).toMatchSnapshot();
+    });
+    it('Snapshot two', () => {
+        const tree = renderer
+            .create(<HeaderInfo
+                obj={obj}
+                tagline={'test'}
+            />)
+            .toJSON();
+        expect(tree).toMatchSnapshot();
+    });
     it('Renders HeaderInfo component', () => {
         const tree = shallow(
             <HeaderInfo

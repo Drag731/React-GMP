@@ -16,6 +16,12 @@ describe('<MovieItem  />', () => {
         release_date: 2001,
         genres: ['Comedy']
     };
+    it('Snapshot one', () => {
+        const tree = renderer
+            .create(<BrowserRouter><MovieItem item={item} /></BrowserRouter>)
+            .toJSON();
+        expect(tree).toMatchSnapshot();
+    });
 
     it('Renders MovieItem component', () => {
         const tree = shallow(

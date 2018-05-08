@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ChoiceBlock  /> Snapshot one 1`] = `
+<div
+  className="b-header__choice choice-flex"
+>
+  <div
+    className="choice-flex__item"
+  >
+    <span
+      className="b-header__choice-text"
+    >
+      search by
+    </span>
+    <button
+      onClick={[MockFunction]}
+    >
+      title
+    </button>
+    <button
+      onClick={[MockFunction]}
+    >
+      genres
+    </button>
+  </div>
+  <div
+    className="choice-flex__item"
+  >
+    <button
+      onClick={[MockFunction]}
+    >
+      search
+    </button>
+  </div>
+</div>
+`;

@@ -8,6 +8,17 @@ import ChoiceBlock from './ChoiceBlock.jsx'
 configure({ adapter: new Adapter() });
 
 describe('<ChoiceBlock  />', () => {
+    it('Snapshot one', () => {
+        const handleTitleSearch = jest.fn();
+        const handleDirectorSearch = jest.fn();
+        const tree = renderer
+            .create(<ChoiceBlock
+                handleTitleSearch={handleTitleSearch}
+                handleDirectorSearch={handleDirectorSearch}
+            />)
+            .toJSON();
+        expect(tree).toMatchSnapshot();
+    });
     it('Renders ChoiceBlock component', () => {
         const handleTitleSearch = jest.fn();
         const handleDirectorSearch = jest.fn();

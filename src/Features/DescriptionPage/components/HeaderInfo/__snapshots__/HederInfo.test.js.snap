@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<HeaderInfo  /> Snapshot one 1`] = `
+<div
+  className="b-header-info"
+>
+  <div
+    className="b-header-info__img"
+  >
+    <img
+      alt=""
+      className="b-header-info__img-pic"
+      src={undefined}
+    />
+  </div>
+  <div
+    className="b-header-info__about"
+  >
+    <div
+      className="b-header-info__about-title"
+    />
+    <div
+      className="b-header-info__about-year b-year"
+    >
+      <span
+        className="b-year__release-date"
+      />
+      <span
+        className="b-year__runtime"
+      />
+    </div>
+    <div />
+  </div>
+</div>
+`;
+
+exports[`<HeaderInfo  /> Snapshot two 1`] = `
+<div
+  className="b-header-info"
+>
+  <div
+    className="b-header-info__img"
+  >
+    <img
+      alt=""
+      className="b-header-info__img-pic"
+      src={undefined}
+    />
+  </div>
+  <div
+    className="b-header-info__about"
+  >
+    <div
+      className="b-header-info__about-title"
+    />
+    <div
+      className="b-header-info__about-tagline"
+    >
+      test
+    </div>
+    <div
+      className="b-header-info__about-year b-year"
+    >
+      <span
+        className="b-year__release-date"
+      />
+      <span
+        className="b-year__runtime"
+      />
+    </div>
+    <div />
+  </div>
+</div>
+`;

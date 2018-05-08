@@ -8,6 +8,17 @@ import SearchBlock from './SearchBlock.jsx'
 configure({ adapter: new Adapter() });
 
 describe('<SearchBlock  />', () => {
+    it('Snapshot one', () => {
+        const handleSearch = jest.fn();
+        const search = 'search';
+        const tree = renderer
+            .create(<SearchBlock
+                handleSearch={handleSearch}
+                search={search}
+            />)
+            .toJSON();
+        expect(tree).toMatchSnapshot();
+    });
     it('Renders SearchBlock component', () => {
         const handleSearch = jest.fn();
         const search = 'search';

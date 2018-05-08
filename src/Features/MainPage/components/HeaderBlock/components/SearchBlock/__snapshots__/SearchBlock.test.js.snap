@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SearchBlock  /> Snapshot one 1`] = `
+<div
+  className="b-header__search"
+>
+  <span
+    className="b-header__search-title"
+  >
+    find your movie
+  </span>
+  <input
+    className="b-header__search-input"
+    onChange={[Function]}
+    placeholder="search"
+    type="search"
+    value="search"
+  />
+</div>
+`;

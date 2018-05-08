@@ -8,6 +8,12 @@ import Footer from './Footer.jsx'
 configure({ adapter: new Adapter() });
 
 describe('<Footer  />', () => {
+    it('renders correctly', () => {
+        const tree = renderer
+            .create(<Footer />)
+            .toJSON();
+        expect(tree).toMatchSnapshot();
+    });
     it('Renders footer component', () => {
         const tree = shallow(
             <Footer />

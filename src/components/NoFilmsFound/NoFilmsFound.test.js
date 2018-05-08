@@ -8,6 +8,12 @@ import NoFilmsFound from './NoFilmsFound.jsx'
 configure({ adapter: new Adapter() });
 
 describe('<NoFilmsFound  />', () => {
+    it('Snapshot one', () => {
+        const tree = renderer
+            .create(<NoFilmsFound />)
+            .toJSON();
+        expect(tree).toMatchSnapshot();
+    });
     it('Renders NoFilmsFound component', () => {
         const tree = shallow(
             <NoFilmsFound />
