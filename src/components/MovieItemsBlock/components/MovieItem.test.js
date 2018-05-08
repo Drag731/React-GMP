@@ -9,15 +9,15 @@ import MovieItem from './MovieItem.jsx'
 configure({ adapter: new Adapter() });
 
 describe('<MovieItem  />', () => {
-    it('Renders MovieItem component', () => {
-        const item = {
-            poster_path: 'http',
-            id: 1,
-            title: 'title',
-            release_date: 2001,
-            genres: ['Comedy']
-        };
+    const item = {
+        poster_path: 'http',
+        id: 1,
+        title: 'title',
+        release_date: 2001,
+        genres: ['Comedy']
+    };
 
+    it('Renders MovieItem component', () => {
         const tree = shallow(
             <MovieItem item={item}/>
         );

@@ -9,6 +9,5 @@ describe('<Button />', () => {
             .create(<Button handler={handler}>Click me</Button>)
             .toJSON();
         expect(tree).toMatchSnapshot();
-        console.log('First', tree);
     });
 });

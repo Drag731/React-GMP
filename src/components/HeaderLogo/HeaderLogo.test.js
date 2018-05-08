@@ -20,5 +20,4 @@ describe('<HeaderLogo  />', () => {
         );
         expect(tree.find('.b-header__logo-link')).toHaveLength(1);
     });
-
 });

@@ -21,11 +21,9 @@ class DescriptionPage extends React.Component {
         this.loadMovie = this.loadMovie.bind(this);
         this.loadMovies = this.loadMovies.bind(this);
         this.handlePop = this.handlePop.bind(this);
-        this.reload = this.reload.bind(this);
     }
 
     componentDidMount() {
-        console.log("this.props", this.props);
         this.loadMovie(this.props.match.params.id);
     }
 
@@ -40,6 +38,13 @@ class DescriptionPage extends React.Component {
     handlePop() {
         console.log("haddle.pop", this.props);
         this.loadMovie(this.props.match.params.id);
+    };
+
+    componentWillReceiveProps(nextProps) {
+        const {id} = nextProps.match.params;
+        if(id && this.props.match.params.id !== id) {
+            this.loadMovie(id)
+        }
     };
 
     loadMovie(id) {
@@ -92,10 +97,6 @@ class DescriptionPage extends React.Component {
             })
     }
 
-    reload(id) {
-        this.loadMovie(id);
-    }
-
     render() {
         return (
             <ErrorBoundary>
@@ -112,7 +113,6 @@ class DescriptionPage extends React.Component {
                             </div>
                             <MovieItemsBlock
                                 movies={this.state.movies}
-                                reload={this.reload}
                             />
                         </div>
                     }

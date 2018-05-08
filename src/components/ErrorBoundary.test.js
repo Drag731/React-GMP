@@ -17,4 +17,15 @@ describe('<ErrorBoundary  />', () => {
         });
         expect(tree.find('h1')).toHaveLength(1);
     });
+    it('Renders ErrorBoundary component with child', () => {
+        const tree = shallow(
+            <ErrorBoundary >
+                <div className="error"/>
+            </ErrorBoundary>
+        );
+        tree.setState({
+            hasError: false
+        });
+        expect(tree.find('.error')).toHaveLength(1);
+    });
 });
