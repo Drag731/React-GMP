@@ -44,11 +44,18 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		&__item:first-child {
-			display: flex;
-			width: 210px;
-   			justify-content: space-between;
-			align-items: center;
+		&__item {
+			&:first-child {
+				display: flex;
+				width: 210px;
+				justify-content: space-between;
+				align-items: center;
+			}
+			button {
+				&:hover {
+					outline: none;
+				}
+			}
 		}
 }
 

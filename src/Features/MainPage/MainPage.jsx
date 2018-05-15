@@ -1,113 +1,96 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-import { getMovies } from '../../api/movie';
 import ErrorBoundary from '../../components/ErrorBoundary';
 import MovieItemsBlock from '../../components/MovieItemsBlock/MovieItemsBlock';
 import NoFilmsFound from '../../components/NoFilmsFound/NoFilmsFound';
 import ResultBlock from './components/ResultBlock/ResultBlock';
 import HeaderBlock from './components/HeaderBlock/HeaderBlock';
 
+import { fetchMovies, handleSearch, handleSearchButton, setSearchBy, setSortBy } from './MainPageActions';
+
+import { getQuery, getData, getSearch, getTotal, getisLoadingMovies } from './MainPageReducers';
+
 import './MainPage.scss'
+
+const mapStateToProps = state => ({
+    query: getQuery(state),
+    movies: getData(state),
+    search: getSearch(state),
+    total: getTotal(state),
+    isLoadingMovies: getisLoadingMovies(state),
+    searchBy: state.movies.searchBy,
+    sortBy: state.movies.sortBy,
+});
+
+const mapDispatchToProps = {
+    fetchMovies: (q) => fetchMovies(q),
+    handleSearch: (search) => handleSearch(search),
+    setSearchBy: payload => setSearchBy(payload),
+    setSortBy: payload => setSortBy(payload),
+    handleSearchButton: () => handleSearchButton()
+};
 
 class MainPage extends React.Component {
     constructor(props) {
         super(props);
-
-        this.state = {
-            movies: [],
-            total: 0,
-            search: "",
-            ratingSort: true,
-            dateSort: true,
-            isLoadingMovies: true
-        };
-
-        this.loadMovies = this.loadMovies.bind(this);
-        this.handleSearch = this.handleSearch.bind(this);
-        this.handleTitleSearch = this.handleTitleSearch.bind(this);
-        this.handleDirectorSearch = this.handleDirectorSearch.bind(this);
-        this.handleReleaseDateSort = this.handleReleaseDateSort.bind(this);
-        this.handleRatingSort = this.handleRatingSort.bind(this);
     }
 
     componentDidMount() {
-        this.loadMovies();
+        this.props.fetchMovies();
     }
 
-    loadMovies(q) {
-        return getMovies(q)
-            .then((res) => {
-                return (
-                    this.setState({
-                        movies: res.data,
-                        total: res.total
-                    })
-                )
-            })
-            .then(() => {
-                this.setState({
-                    isLoadingMovies: false
-                });
-            })
-            .catch(() => {
-                throw new Error('I crashed!');
-            })
-    }
+    // componentWillReceiveProps(nextProps) {
+    //     if (this.props.query !== nextProps.query) {
+    //         this.props.fetchMovies(nextProps.query);
+    //     }
+    // }
 
-    handleSearch(event) {
-        this.setState({
-            search: event.target.value
-        });
-        this.loadMovies(`?search=${event.target.value}&searchBy=title`)
-    }
+    handleSearch = (search) => { this.props.handleSearch(search)};
 
-    handleTitleSearch() {
-        if (!this.state.search) return;
-        this.loadMovies(`?search=${this.state.search}&searchBy=title`)
-    }
+    handleSearchButton = () => {
+        this.props.handleSearchButton();
+        this.props.fetchMovies(this.props.query);
+    };
 
-    handleDirectorSearch() {
-        if (!this.state.search) return;
-        const genres = this.state.search[0].toUpperCase() + this.state.search.slice(1);
-        this.loadMovies(`?search=${genres}&searchBy=genres`)
-    }
+    handleTitleSearch = () => { this.props.setSearchBy('title')};
 
-    handleReleaseDateSort() {
-        this.setState({
-            dateSort: !this.state.dateSort,
-            isLoadingMovies: true
-        });
-        this.loadMovies(`?sortBy=release_date&sortOrder=${this.state.dateSort ? "desc" : "asc"}`)
-    }
+    handleGenresSearch = () => { this.props.setSearchBy('genres')};
 
-    handleRatingSort() {
-        this.setState({
-            ratingSort: !this.state.ratingSort,
-            isLoadingMovies: true
-        });
-        this.loadMovies(`?sortBy=vote_average&sortOrder=${this.state.ratingSort ? "desc" : "asc"}`)
-    }
+    handleReleaseDateSort = () => {
+        this.props.setSortBy('release_date');
+        this.props.fetchMovies(this.props.query);
+    };
+
+    handleRatingSort = () => {
+        this.props.setSortBy('vote_average');
+        this.props.fetchMovies(this.props.query);
+    };
 
     render() {
+        console.log(this.props);
+        const { movies, search, total, isLoadingMovies, searchBy } = this.props;
         return (
             <ErrorBoundary>
                 <React.Fragment>
                         <div className="main-page container">
                             <HeaderBlock
                                 handleSearch={this.handleSearch}
+                                handleSearchButton={this.handleSearchButton}
                                 handleTitleSearch={this.handleTitleSearch}
-                                handleDirectorSearch={this.handleDirectorSearch}
-                                search={this.state.search}
+                                handleGenresSearch={this.handleGenresSearch}
+                                search={search}
+                                searchBy={searchBy}
                             />
                             <ResultBlock
-                                total={this.state.total}
+                                total={total}
                                 handleReleaseDateSort={this.handleReleaseDateSort}
                                 handleRatingSort={this.handleRatingSort}
                             />
-                            {this.state.isLoadingMovies ?
+                            {isLoadingMovies ?
                                 "Loading..." :
-                                this.state.total ?
-                                    <MovieItemsBlock movies={this.state.movies}/> :
+                                total ?
+                                    <MovieItemsBlock movies={movies}/> :
                                     <NoFilmsFound/>
 
                             }
@@ -118,4 +101,4 @@ class MainPage extends React.Component {
     }
 }
 
-export default MainPage;
+export default connect(mapStateToProps, mapDispatchToProps)(MainPage);

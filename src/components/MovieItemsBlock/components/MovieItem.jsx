@@ -16,7 +16,7 @@ const MovieItem = ({item}) => (
             <span className="b-item__title-year">{item.release_date}</span>
         </div>
         <div className="b-item__ganre-wrap">
-            <span className="b-item__ganre-text">{item.genres}</span>
+            <span className="b-item__ganre-text">{item.genres.join(' & ')}</span>
         </div>
     </div>
 );

@@ -14,6 +14,7 @@ const ResultBlock = ({handleReleaseDateSort, handleRatingSort, total}) => (
             <span
                 onClick={handleReleaseDateSort}
                 className="b-result__sort-item"
+
             >
                 release date
             </span>

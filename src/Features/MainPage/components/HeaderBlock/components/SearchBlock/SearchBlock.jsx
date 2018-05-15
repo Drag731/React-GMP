@@ -6,7 +6,7 @@ const SearchBlock = ({handleSearch, search}) => (
     <div className="b-header__search">
         <span className="b-header__search-title">find your movie</span>
         <input
-            onChange={(e) => handleSearch(e)}
+            onChange={(e) => handleSearch(e.target.value)}
             className="b-header__search-input"
             type="search"
             placeholder="search"
