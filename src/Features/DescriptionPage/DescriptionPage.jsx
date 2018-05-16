@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { getMovie, getMovies } from '../../api/movie';
+import { getMovie, getMovies } from '../../api/movies';
 import ErrorBoundary from '../../components/ErrorBoundary';
 import HeaderLogo from '../../components/HeaderLogo/HeaderLogo';
 import MovieItemsBlock from '../../components/MovieItemsBlock/MovieItemsBlock';
