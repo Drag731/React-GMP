@@ -2,7 +2,7 @@ import React from 'react';
 
 // import './ResultBlock.scss'
 
-const ResultBlock = ({handleReleaseDateSort, handleRatingSort, total}) => (
+const ResultBlock = ({handleReleaseDateSort, handleRatingSort, total, sortBy}) => (
     <div className="main-page__result b-result">
         <div className="b-result__text-wrap">
             <span className="b-result__text">
@@ -14,13 +14,24 @@ const ResultBlock = ({handleReleaseDateSort, handleRatingSort, total}) => (
             <span
                 onClick={handleReleaseDateSort}
                 className="b-result__sort-item"
-
+                style={
+                    {
+                        color: sortBy === 'release_date' ? 'red' : '#000',
+                        pointerEvents: sortBy === 'release_date' ? 'none' : 'auto'
+                    }
+                }
             >
                 release date
             </span>
             <span
                 onClick={handleRatingSort}
                 className="b-result__sort-item"
+                style={
+                    {
+                        color: sortBy === 'vote_average' ? 'red' : '#000',
+                        pointerEvents: sortBy === 'vote_average' ? 'none' : 'auto'
+                    }
+                }
             >
                 rating
             </span>

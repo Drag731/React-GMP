@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import './HeaderLogo.scss'
 
-const HeaderLogo = ({description}) => (
+const HeaderLogo = ({description, handleGoSearchPage}) => (
     <div className="b-header__logo-wrap">
         <h1 className="b-header__logo-text">
             Filmzilla
@@ -13,6 +13,7 @@ const HeaderLogo = ({description}) => (
             <Link
                 to="/filmzilla"
                 className="b-header__logo-link"
+                onClick={handleGoSearchPage}
             >
                 search
             </Link>

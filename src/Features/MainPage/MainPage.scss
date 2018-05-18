@@ -38,6 +38,11 @@
 		padding: 10px 0;
 		text-transform: uppercase;
 	}
+	&__button {
+		&:hover {
+			cursor: pointer;
+		}
+	}
 }
 
 .choice-flex {
@@ -68,6 +73,11 @@
 		width: 210px;
    		justify-content: space-between;
 		align-items: center;
+	}
+	&__sort-item {
+		&:hover {
+			cursor: pointer;
+		}
 	}
 }
 

@@ -2,6 +2,16 @@ import {
     ADD_MOVIES,
 } from './MainPageActions';
 
+import {
+    SEARCH_BUTTON,
+    SET_SORT_BY,
+    PRESS_ENTER_BUTTON
+} from './components/FilterBlock/FilterBlockActions';
+
+import {
+    GO_TO_SEARCH
+} from '../DescriptionPage/DescriptionPageActions';
+
 const initialState = {
     movies: [],
     total: 0,
@@ -17,6 +27,42 @@ const MoviesReducer = (state = initialState, action) => {
                 isLoadingMovies: false,
                 movies: action.response.data,
                 total: action.response.total
+            };
+        }
+
+        case SEARCH_BUTTON: {
+            return {
+                ...state,
+                isLoadingMovies: true,
+                movies: [],
+                total: 0
+            };
+        }
+
+        case GO_TO_SEARCH: {
+            return {
+                ...state,
+                isLoadingMovies: true,
+                movies: [],
+                total: 0
+            };
+        }
+
+        case SET_SORT_BY: {
+            return {
+                ...state,
+                isLoadingMovies: true,
+                movies: [],
+                total: 0
+            };
+        }
+
+        case PRESS_ENTER_BUTTON: {
+            return {
+                ...state,
+                isLoadingMovies: true,
+                movies: [],
+                total: 0
             };
         }
 

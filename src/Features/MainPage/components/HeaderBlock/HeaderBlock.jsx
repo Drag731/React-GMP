@@ -6,11 +6,12 @@ import ChoiceBlock from './components/ChoiceBlock/ChoiceBlock';
 
 // import './NoFilmsFound.scss'
 
-const HeaderBlock = ({handleSearch, handleSearchButton, handleTitleSearch, handleGenresSearch, search, searchBy}) => (
+const HeaderBlock = ({handleSearch, handleSearchButton, handleTitleSearch, handleEnterPress, handleGenresSearch, search, searchBy}) => (
     <div className="main-page__header b-header">
         <HeaderLogo description={false} />
         <SearchBlock
             handleSearch={handleSearch}
+            handleEnterPress={handleEnterPress}
             search={search}
         />
         <ChoiceBlock

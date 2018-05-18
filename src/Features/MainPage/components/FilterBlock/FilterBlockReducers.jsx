@@ -2,7 +2,6 @@ import {
     SEARCH_MOVIE,
     SET_SORT_BY,
     SET_SEARCH_BY,
-    SEARCH_BUTTON
 } from './FilterBlockActions';
 
 const initialState = {
@@ -33,13 +32,6 @@ const FilterReducer = (state = initialState, action) => {
             return {
                 ...state,
                 search: action.search
-            };
-        }
-
-        case SEARCH_BUTTON: {
-            return {
-                ...state,
-                isLoadingMovies: true
             };
         }
 

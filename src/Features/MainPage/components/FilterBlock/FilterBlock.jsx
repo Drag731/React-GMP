@@ -8,7 +8,8 @@ import {
     handleSearch,
     handleSearchButton,
     setSearchBy,
-    setSortBy
+    setSortBy,
+    handleEnterPress
 } from './FilterBlockActions';
 
 import { getQuery, getSearch } from './FilterBlockReducers';
@@ -29,12 +30,19 @@ const mapDispatchToProps = {
     handleSearch: (search) => handleSearch(search),
     setSearchBy: payload => setSearchBy(payload),
     setSortBy: payload => setSortBy(payload),
-    handleSearchButton: () => handleSearchButton()
+    handleSearchButton: () => handleSearchButton(),
+    handleEnterPress: () => handleEnterPress()
 };
 
 class FilterBlock extends React.Component {
     constructor(props) {
         super(props);
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (this.props.sortBy !== nextProps.sortBy) {
+            this.props.receiveMoviesDB(nextProps.query);
+        }
     }
 
     handleSearch = (search) => { this.props.handleSearch(search)};
@@ -48,19 +56,20 @@ class FilterBlock extends React.Component {
 
     handleGenresSearch = () => { this.props.setSearchBy('genres')};
 
-    handleReleaseDateSort = () => {
-        this.props.setSortBy('release_date');
-        this.props.receiveMoviesDB(this.props.query);
-    };
+    handleReleaseDateSort = () => { this.props.setSortBy('release_date')};
 
-    handleRatingSort = () => {
-        this.props.setSortBy('vote_average');
-        this.props.receiveMoviesDB(this.props.query);
+    handleRatingSort = () => { this.props.setSortBy('vote_average')};
+
+    handleEnterPress = (e) => {
+        if(e.keyCode === 13) {
+            this.props.handleEnterPress();
+            this.props.receiveMoviesDB(this.props.query);
+        }
     };
 
     render() {
         console.log(this.props);
-        const { search, total, searchBy } = this.props;
+        const { search, total, searchBy, sortBy } = this.props;
         return (
             <React.Fragment>
                 <HeaderBlock
@@ -68,6 +77,7 @@ class FilterBlock extends React.Component {
                     handleSearchButton={this.handleSearchButton}
                     handleTitleSearch={this.handleTitleSearch}
                     handleGenresSearch={this.handleGenresSearch}
+                    handleEnterPress={this.handleEnterPress}
                     search={search}
                     searchBy={searchBy}
                 />
@@ -75,6 +85,7 @@ class FilterBlock extends React.Component {
                     total={total}
                     handleReleaseDateSort={this.handleReleaseDateSort}
                     handleRatingSort={this.handleRatingSort}
+                    sortBy={sortBy}
                 />
             </React.Fragment>
         )
