@@ -10,9 +10,13 @@ import { receiveMoviesDB } from './MainPageActions';
 
 import { getData, getTotal, getIsLoadingMovies } from './MainPageReducers';
 
+import { handleSearchButton } from './components/FilterBlock/FilterBlockActions'
+import { getQuery } from './components/FilterBlock/FilterBlockReducers';
+
 import './MainPage.scss'
 
 const mapStateToProps = state => ({
+    query: getQuery(state),
     movies: getData(state),
     total: getTotal(state),
     isLoadingMovies: getIsLoadingMovies(state),
@@ -20,6 +24,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
     receiveMoviesDB: (q) => receiveMoviesDB(q),
+    handleSearchButton: () => handleSearchButton()
 };
 
 class MainPage extends React.Component {
@@ -28,6 +33,11 @@ class MainPage extends React.Component {
     }
 
     componentDidMount() {
+        // if (JSON.parse(localStorage.getItem('persist:root')).filter.search !== '') {
+        //     this.props.handleSearchButton();
+        //     this.props.receiveMoviesDB(this.props.query);
+        //     return;
+        // }
         this.props.receiveMoviesDB();
     }
 
@@ -53,3 +63,4 @@ class MainPage extends React.Component {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(MainPage);
+export const MainPageTest = MainPage;

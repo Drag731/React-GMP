@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<MainPageTest  /> Renders DescriptionPageTest component snapshot2 1`] = `
+<ErrorBoundary>
+  <React.Fragment>
+    <div
+      className="main-page container"
+    >
+      <Connect(FilterBlock) />
+      <NoFilmsFound />
+    </div>
+  </React.Fragment>
+</ErrorBoundary>
+`;
+
+exports[`<MainPageTest  /> Renders DescriptionPageTest component snapshot3 1`] = `
+<ErrorBoundary>
+  <React.Fragment>
+    <div
+      className="main-page container"
+    >
+      <Connect(FilterBlock) />
+      <MovieItemsBlock
+        movies={Array []}
+      />
+    </div>
+  </React.Fragment>
+</ErrorBoundary>
+`;
+
+exports[`<MainPageTest  /> Renders MainPageTest component 1`] = `
+<ErrorBoundary>
+  <React.Fragment>
+    <div
+      className="main-page container"
+    >
+      <Connect(FilterBlock) />
+      Loading...
+    </div>
+  </React.Fragment>
+</ErrorBoundary>
+`;
