@@ -12,6 +12,7 @@ exports[`<SearchBlock  /> Snapshot one 1`] = `
   <input
     className="b-header__search-input"
     onChange={[Function]}
+    onKeyDown={[Function]}
     placeholder="search"
     type="search"
     value="search"

@@ -25,8 +25,8 @@ const MoviesReducer = (state = initialState, action) => {
             return {
                 ...state,
                 isLoadingMovies: false,
-                movies: action.response.data,
-                total: action.response.total
+                movies: action.payload.data,
+                total: action.payload.total
             };
         }
 

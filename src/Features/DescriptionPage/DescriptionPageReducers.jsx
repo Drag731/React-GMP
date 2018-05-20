@@ -15,22 +15,21 @@ const initialState = {
 };
 
 const DescriptionPageReducer = (state = initialState, action) => {
-    console.log("action", action);
     switch (action.type) {
 
         case ADD_MOVIE: {
             return {
                 ...state,
                 isLoadingMovie: false,
-                movie: action.response.data,
-                genres: action.response.data.genres
+                movie: action.payload,
+                genres: action.payload.genres
             };
         }
 
         case ADD_MOVIES: {
             return {
                 ...state,
-                movies: action.response.data,
+                movies: action.payload.data,
             };
         }
 

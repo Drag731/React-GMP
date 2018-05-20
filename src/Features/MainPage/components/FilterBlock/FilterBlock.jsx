@@ -12,7 +12,7 @@ import {
     handleEnterPress
 } from './FilterBlockActions';
 
-import { getQuery, getSearch } from './FilterBlockReducers';
+import { getQuery } from './FilterBlockReducers';
 
 import { receiveMoviesDB } from '../../MainPageActions';
 import { getTotal } from '../../MainPageReducers';
@@ -20,7 +20,7 @@ import { getTotal } from '../../MainPageReducers';
 const mapStateToProps = state => ({
     total: getTotal(state),
     query: getQuery(state),
-    search: getSearch(state),
+    search: state.filter.search,
     searchBy: state.filter.searchBy,
     sortBy: state.filter.sortBy,
 });
@@ -68,7 +68,6 @@ class FilterBlock extends React.Component {
     };
 
     render() {
-        console.log(this.props);
         const { search, total, searchBy, sortBy } = this.props;
         return (
             <React.Fragment>
@@ -93,3 +92,4 @@ class FilterBlock extends React.Component {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(FilterBlock);
+export const FilterBlockTest = FilterBlock;

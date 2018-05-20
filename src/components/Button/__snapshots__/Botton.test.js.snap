@@ -2,7 +2,9 @@
 
 exports[`<Button /> renders correctly 1`] = `
 <button
+  className=""
   onClick={[MockFunction]}
+  style={undefined}
 >
   Click me
 </button>

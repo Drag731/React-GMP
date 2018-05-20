@@ -13,12 +13,16 @@ exports[`<ChoiceBlock  /> Snapshot one 1`] = `
       search by
     </span>
     <button
+      className="b-header__button"
       onClick={[MockFunction]}
+      style={undefined}
     >
       title
     </button>
     <button
-      onClick={[MockFunction]}
+      className="b-header__button"
+      onClick={undefined}
+      style={undefined}
     >
       genres
     </button>
@@ -27,7 +31,14 @@ exports[`<ChoiceBlock  /> Snapshot one 1`] = `
     className="choice-flex__item"
   >
     <button
-      onClick={[MockFunction]}
+      className=""
+      onClick={undefined}
+      style={
+        Object {
+          "background": "red",
+          "pointerEvents": "auto",
+        }
+      }
     >
       search
     </button>

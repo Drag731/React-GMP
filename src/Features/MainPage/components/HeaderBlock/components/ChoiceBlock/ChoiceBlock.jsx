@@ -10,20 +10,12 @@ const ChoiceBlock = ({handleTitleSearch, handleGenresSearch, handleSearchButton,
             <span className="b-header__choice-text">search by</span>
             <Button
                 handler={handleTitleSearch}
-                className="b-header__button"
-                style={{
-                    background: searchBy === 'title' ? 'aqua' : '#ccc',
-                    pointerEvents: searchBy === 'title' ? 'none' : 'auto'
-                }}
+                className={searchBy === 'title' ? "b-header__button_active" : "b-header__button" }
             >title
             </Button>
             <Button
                 handler={handleGenresSearch}
-                className="b-header__button"
-                style={{
-                    background: searchBy === 'title' ? '#ccc' : 'aqua',
-                    pointerEvents: searchBy === 'genres' ? 'none' : 'auto'
-                }}
+                className={searchBy === 'genres' ? "b-header__button_active" : "b-header__button" }
             >genres
             </Button>
         </div>

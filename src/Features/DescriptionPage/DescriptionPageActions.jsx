@@ -4,10 +4,9 @@ export const GO_TO_SEARCH = 'GO_TO_SEARCH';
 
 export const receiveMovieDB = (id) => {
     return (dispatch, getState, api) => {
-        console.log("getState", getState());
         api(`movies/${id}`)
             .then(response => {
-                dispatch(receiveMovieState(response));
+                dispatch(receiveMovieState(response.data));
             })
             .catch(() => {
                     throw new Error('I crashed!');
@@ -15,9 +14,9 @@ export const receiveMovieDB = (id) => {
     };
 };
 
-const receiveMovieState = response => ({
+export const receiveMovieState = payload => ({
     type: ADD_MOVIE,
-    response,
+    payload,
 });
 
 export const changeIsLoading = () => ({

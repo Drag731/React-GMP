@@ -48,9 +48,7 @@ exports[`<MovieItemsBlock  /> Snapshot two 1`] = `
       <span
         className="b-item__ganre-text"
       >
-        Action
-        Adventure
-        Science Fiction
+        Action & Adventure & Science Fiction
       </span>
     </div>
   </div>

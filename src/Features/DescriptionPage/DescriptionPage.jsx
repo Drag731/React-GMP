@@ -53,7 +53,6 @@ class DescriptionPage extends React.Component {
     }
 
     handlePop() {
-        console.log("haddle.pop", this.props);
         this.props.changeIsLoading();
         this.props.receiveMovieDB(this.props.match.params.id);
         this.props.receiveMoviesDB(`?${this.props.genres[0]}`)
@@ -96,3 +95,4 @@ class DescriptionPage extends React.Component {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(DescriptionPage);
+export const DescriptionPageTest = DescriptionPage;

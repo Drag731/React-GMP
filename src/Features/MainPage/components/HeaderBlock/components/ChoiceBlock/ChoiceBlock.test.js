@@ -30,4 +30,17 @@ describe('<ChoiceBlock  />', () => {
         );
         expect(tree.find('.b-header__choice')).toHaveLength(1);
     });
+    it('Renders ChoiceBlock component with searchBy genres', () => {
+        const handleTitleSearch = jest.fn();
+        const handleDirectorSearch = jest.fn();
+        const searchBy = 'genres';
+        const tree = shallow(
+            <ChoiceBlock
+                handleTitleSearch={handleTitleSearch}
+                handleDirectorSearch={handleDirectorSearch}
+                searchBy={searchBy}
+            />
+        );
+        expect(tree.find('.b-header__button_active')).toHaveLength(1);
+    });
 });

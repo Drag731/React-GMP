@@ -1,0 +1,199 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<FilterBlockTest  /> Renders FilterBlockTest component 1`] = `
+<React.Fragment>
+  <HeaderBlock
+    handleEnterPress={[Function]}
+    handleGenresSearch={[Function]}
+    handleSearch={[Function]}
+    handleSearchButton={[Function]}
+    handleTitleSearch={[Function]}
+    search=""
+    searchBy="title"
+  />
+  <ResultBlock
+    handleRatingSort={[Function]}
+    handleReleaseDateSort={[Function]}
+    sortBy=""
+    total={3000}
+  />
+</React.Fragment>
+`;
+
+exports[`<FilterBlockTest  /> Renders FilterBlockTest component snapshot2 1`] = `
+<FilterBlock
+  handleEnterPress={[Function]}
+  handleSearch={[Function]}
+  handleSearchButton={[Function]}
+  query=""
+  receiveMoviesDB={[Function]}
+  search=""
+  searchBy="title"
+  setSearchBy={[Function]}
+  setSortBy={[Function]}
+  sortBy=""
+  total={3000}
+>
+  <HeaderBlock
+    handleEnterPress={[Function]}
+    handleGenresSearch={[Function]}
+    handleSearch={[Function]}
+    handleSearchButton={[Function]}
+    handleTitleSearch={[Function]}
+    search=""
+    searchBy="title"
+  >
+    <div
+      className="main-page__header b-header"
+    >
+      <HeaderLogo
+        description={false}
+      >
+        <div
+          className="b-header__logo-wrap"
+        >
+          <h1
+            className="b-header__logo-text"
+          >
+            Filmzilla
+          </h1>
+        </div>
+      </HeaderLogo>
+      <SearchBlock
+        handleEnterPress={[Function]}
+        handleSearch={[Function]}
+        search=""
+      >
+        <div
+          className="b-header__search"
+        >
+          <span
+            className="b-header__search-title"
+          >
+            find your movie
+          </span>
+          <input
+            className="b-header__search-input"
+            onChange={[Function]}
+            onKeyDown={[Function]}
+            placeholder="search"
+            type="search"
+            value=""
+          />
+        </div>
+      </SearchBlock>
+      <ChoiceBlock
+        handleGenresSearch={[Function]}
+        handleSearchButton={[Function]}
+        handleTitleSearch={[Function]}
+        search=""
+        searchBy="title"
+      >
+        <div
+          className="b-header__choice choice-flex"
+        >
+          <div
+            className="choice-flex__item"
+          >
+            <span
+              className="b-header__choice-text"
+            >
+              search by
+            </span>
+            <Button
+              className="b-header__button_active"
+              handler={[Function]}
+            >
+              <button
+                className="b-header__button_active"
+                onClick={[Function]}
+              >
+                title
+              </button>
+            </Button>
+            <Button
+              className="b-header__button"
+              handler={[Function]}
+            >
+              <button
+                className="b-header__button"
+                onClick={[Function]}
+              >
+                genres
+              </button>
+            </Button>
+          </div>
+          <div
+            className="choice-flex__item"
+          >
+            <Button
+              handler={[Function]}
+              style={
+                Object {
+                  "background": "#ccc",
+                  "pointerEvents": "none",
+                }
+              }
+            >
+              <button
+                className=""
+                onClick={[Function]}
+                style={
+                  Object {
+                    "background": "#ccc",
+                    "pointerEvents": "none",
+                  }
+                }
+              >
+                search
+              </button>
+            </Button>
+          </div>
+        </div>
+      </ChoiceBlock>
+    </div>
+  </HeaderBlock>
+  <ResultBlock
+    handleRatingSort={[Function]}
+    handleReleaseDateSort={[Function]}
+    sortBy=""
+    total={3000}
+  >
+    <div
+      className="main-page__result b-result"
+    >
+      <div
+        className="b-result__text-wrap"
+      >
+        <span
+          className="b-result__text"
+        >
+          3000
+           movies found
+        </span>
+      </div>
+      <div
+        className="b-result__sort-wrap"
+      >
+        <span
+          className="b-result__sort-text"
+        >
+          Sort by:
+        </span>
+        <span
+          className="b-result__sort-item"
+          onClick={[Function]}
+        >
+          release date
+        </span>
+        <span
+          className="b-result__sort-item"
+          onClick={[Function]}
+        >
+          rating
+        </span>
+      </div>
+    </div>
+  </ResultBlock>
+</FilterBlock>
+`;

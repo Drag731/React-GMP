@@ -32,7 +32,6 @@ class MainPage extends React.Component {
     }
 
     render() {
-        console.log(this.props);
         const { movies, total, isLoadingMovies } = this.props;
         return (
             <ErrorBoundary>

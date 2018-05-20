@@ -33,4 +33,17 @@ describe('<HeaderLogo  />', () => {
         );
         expect(tree.find('.b-header__logo-link')).toHaveLength(1);
     });
+    it('should call handleGoSearchPage on click', () => {
+        const handleGoSearchPage = jest.fn();
+        const tree = shallow(
+            <HeaderLogo
+                description={true}
+                handleGoSearchPage={handleGoSearchPage}
+            />
+        );
+
+        tree.find('.b-header__logo-link').simulate('click');
+
+        expect(handleGoSearchPage).toHaveBeenCalled();
+    });
 });

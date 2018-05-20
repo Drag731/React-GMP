@@ -7,7 +7,7 @@ import {
 const initialState = {
     search: '',
     sortBy: '',
-    searchBy: 'title',
+    searchBy: 'title'
 };
 
 const FilterReducer = (state = initialState, action) => {
@@ -40,8 +40,6 @@ const FilterReducer = (state = initialState, action) => {
         }
     }
 };
-
-export const getSearch = state => state.filter.search;
 
 export const getQuery = state => {
     let {search, searchBy, sortBy} = state.filter;

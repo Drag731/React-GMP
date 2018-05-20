@@ -39,8 +39,23 @@ describe('<SearchBlock  />', () => {
                 search={search}
             />
         );
-        tree.find('input').simulate('change');
+        tree.find('input').simulate('change', { target: { value: 'a' } });
 
         expect(handleSearch).toHaveBeenCalled();
+    });
+    it('check handleEnterPress component click', () => {
+        const handleEnterPress = jest.fn();
+        const handleSearch = jest.fn();
+        const search = 'search';
+        const tree = shallow(
+            <SearchBlock
+                handleSearch={handleSearch}
+                search={search}
+                handleEnterPress={handleEnterPress}
+            />
+        );
+        tree.find('input').simulate('keyDown');
+
+        expect(handleEnterPress).toHaveBeenCalled();
     });
 });

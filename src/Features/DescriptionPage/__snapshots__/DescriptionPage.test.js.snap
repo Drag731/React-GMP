@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DescriptionPageTest  /> Renders DescriptionPageTest component 1`] = `
+<ErrorBoundary>
+  <React.Fragment>
+    Loading...
+  </React.Fragment>
+</ErrorBoundary>
+`;
+
+exports[`<DescriptionPageTest  /> Renders DescriptionPageTest component snapshot2 1`] = `
+<ErrorBoundary>
+  <React.Fragment>
+    <div
+      className="description-page container"
+    >
+      <div
+        className="description-page__header b-header"
+      >
+        <HeaderLogo
+          description={true}
+          handleGoSearchPage={[Function]}
+        />
+        <HeaderInfo />
+      </div>
+      <div
+        className="description-page__genre-result"
+      >
+        Film by 
+         genre
+      </div>
+      <MovieItemsBlock
+        movies={Array []}
+      />
+    </div>
+  </React.Fragment>
+</ErrorBoundary>
+`;

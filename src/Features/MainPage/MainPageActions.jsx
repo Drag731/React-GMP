@@ -2,7 +2,6 @@ export const ADD_MOVIES = 'ADD_MOVIES';
 
 export const receiveMoviesDB = (q = '') => {
     return (dispatch, getState, api) => {
-        console.log("getState", getState());
         api(`movies${q}`)
             .then(response => {
                 dispatch(receiveMoviesState(response.data));
@@ -13,7 +12,7 @@ export const receiveMoviesDB = (q = '') => {
     };
 };
 
-const receiveMoviesState = response => ({
+export const receiveMoviesState = payload => ({
     type: ADD_MOVIES,
-    response,
+    payload,
 });

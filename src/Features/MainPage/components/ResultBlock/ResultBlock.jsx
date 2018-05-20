@@ -13,25 +13,13 @@ const ResultBlock = ({handleReleaseDateSort, handleRatingSort, total, sortBy}) =
             <span className="b-result__sort-text">Sort by:</span>
             <span
                 onClick={handleReleaseDateSort}
-                className="b-result__sort-item"
-                style={
-                    {
-                        color: sortBy === 'release_date' ? 'red' : '#000',
-                        pointerEvents: sortBy === 'release_date' ? 'none' : 'auto'
-                    }
-                }
+                className={sortBy === "release_date" ? "b-result__sort-item_active" : "b-result__sort-item"}
             >
                 release date
             </span>
             <span
                 onClick={handleRatingSort}
-                className="b-result__sort-item"
-                style={
-                    {
-                        color: sortBy === 'vote_average' ? 'red' : '#000',
-                        pointerEvents: sortBy === 'vote_average' ? 'none' : 'auto'
-                    }
-                }
+                className={sortBy === "vote_average" ? "b-result__sort-item_active" : "b-result__sort-item"}
             >
                 rating
             </span>

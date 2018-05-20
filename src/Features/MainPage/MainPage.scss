@@ -39,9 +39,15 @@
 		text-transform: uppercase;
 	}
 	&__button {
+		background: #ccc;
+		pointer-events: auto;
 		&:hover {
 			cursor: pointer;
 		}
+	}
+	&__button_active {
+		background: aqua;
+		pointer-events:none;
 	}
 }
 
@@ -75,9 +81,15 @@
 		align-items: center;
 	}
 	&__sort-item {
+		color: #000;
+		pointer-events: auto;
 		&:hover {
 			cursor: pointer;
 		}
+	}
+	&__sort-item_active {
+		color: red;
+		pointer-events:none;
 	}
 }
 
