@@ -52,4 +52,13 @@ describe('<FilterBlockTest  />', () => {
         expect(tree.prop('sortBy')).toEqual(sortBy2);
         expect(receiveMoviesDB).toHaveBeenCalled();
     });
+    it('should call handleRatingSort on click', () => {
+        const tree = mount(
+            <FilterBlockTest {...mockProps} sortBy="release_date"/>
+        );
+        const spy = jest.spyOn(tree.instance(), 'handleRatingSort');
+        tree.update();
+        tree.find('.b-result__sort-item').first().simulate('click');
+        expect(spy).toHaveBeenCalled();
+    });
 });
