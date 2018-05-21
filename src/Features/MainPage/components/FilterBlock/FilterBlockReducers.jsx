@@ -6,7 +6,7 @@ import {
 
 const initialState = {
     search: '',
-    sortBy: '',
+    sortBy: 'release_date',
     searchBy: 'title'
 };
 

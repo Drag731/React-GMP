@@ -52,15 +52,62 @@ describe('<FilterBlockTest  />', () => {
         expect(tree.prop('sortBy')).toEqual(sortBy2);
         expect(receiveMoviesDB).toHaveBeenCalled();
     });
-    it('should call handleRatingSort on click', () => {
+    it('should call handleReleaseDateSort on click with release_date', () => {
         const tree = mount(
             <FilterBlockTest {...mockProps} sortBy="release_date"/>
         );
-        console.log(tree.debug());
-        console.log("elem", tree.find('.b-result__sort-item_active').first());
-        const spy = jest.spyOn(tree.instance(), 'handleRatingSort');
-        // tree.update();
-        // tree.find('.b-result__sort-item_active').simulate('click');
-        // expect(spy).toHaveBeenCalled();
+        const { setSortBy } = mockProps;
+        tree.find('.b-result__sort-item_active').first().simulate('click');
+        expect(setSortBy).toHaveBeenCalled();
+    });
+    it('should call handleRatingSort on click with vote_average', () => {
+        const tree = mount(
+            <FilterBlockTest {...mockProps} sortBy="vote_average"/>
+        );
+        const { setSortBy } = mockProps;
+        tree.find('.b-result__sort-item_active').simulate('click');
+        expect(setSortBy).toHaveBeenCalled();
+    });
+    it('should call handleGenresSearch on click with genres', () => {
+        const tree = mount(
+            <FilterBlockTest {...mockProps} searchBy="genres"/>
+        );
+        const { setSearchBy } = mockProps;
+        tree.find('.b-header__button_active').at(1).simulate('click');
+        expect(setSearchBy).toHaveBeenCalled();
+    });
+    it('should call handleGenresSearch on click with genres', () => {
+        const tree = mount(
+            <FilterBlockTest {...mockProps} searchBy="title"/>
+        );
+        const { setSearchBy } = mockProps;
+        tree.find('.b-header__button_active').at(0).simulate('click');
+        expect(setSearchBy).toHaveBeenCalled();
+    });
+    it('should call handleEnterPress on press enter button', () => {
+        const tree = mount(
+            <FilterBlockTest {...mockProps}/>
+        );
+        const { handleEnterPress, receiveMoviesDB } = mockProps;
+        tree.find('input').simulate('keyDown', { keyCode: 13 });
+        expect(handleEnterPress).toHaveBeenCalled();
+        expect(receiveMoviesDB).toHaveBeenCalled();
+    });
+    it('should call handleSearchButton', () => {
+        const tree = mount(
+            <FilterBlockTest {...mockProps}/>
+        );
+        const { handleSearchButton, receiveMoviesDB } = mockProps;
+        tree.find('Button').at(2).simulate('click');
+        expect(handleSearchButton).toHaveBeenCalled();
+        expect(receiveMoviesDB).toHaveBeenCalled();
+    });
+    it('should call handleSearch', () => {
+        const tree = mount(
+            <FilterBlockTest {...mockProps}/>
+        );
+        const { handleSearch } = mockProps;
+        tree.find('input').simulate('change');
+        expect(handleSearch).toHaveBeenCalled();
     });
 });

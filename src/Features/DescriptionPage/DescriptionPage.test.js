@@ -3,6 +3,7 @@ import renderer from 'react-test-renderer';
 import {shallow, mount, configure} from 'enzyme';
 import toJson from 'enzyme-to-json';
 import Adapter from 'enzyme-adapter-react-16';
+import { BrowserRouter } from 'react-router-dom';
 
 import { DescriptionPageTest } from './DescriptionPage'
 
@@ -14,8 +15,9 @@ describe('<DescriptionPageTest  />', () => {
             isLoadingMovie: true,
             movie: {},
             movies: [],
-            receiveMovieDB: () => {},
-            receiveMoviesDB: () => {}
+            receiveMovieDB: jest.fn(),
+            receiveMoviesDB: jest.fn(),
+            goToSearch: jest.fn()
         };
         const match = {
             params: {
@@ -46,7 +48,6 @@ describe('<DescriptionPageTest  />', () => {
                     receiveMoviesDB={receiveMoviesDB}
                 />
             );
-
             expect(receiveMovieDB).toHaveBeenCalled();
             expect(receiveMoviesDB).toHaveBeenCalled();
         });
@@ -81,4 +82,12 @@ describe('<DescriptionPageTest  />', () => {
             expect(receiveMovieDB).toHaveBeenCalled();
             expect(receiveMoviesDB).toHaveBeenCalled();
         });
+    it('should call handleGoSearchPage', () => {
+        const tree = mount(
+            <BrowserRouter><DescriptionPageTest {...mockProps} match={match} isLoadingMovie={false}/></BrowserRouter>
+        );
+        const { goToSearch } = mockProps;
+        tree.find('.b-header__logo-link').first().simulate('click');
+        expect(goToSearch).toHaveBeenCalled();
+    });
 });

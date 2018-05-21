@@ -14,6 +14,7 @@ const HeaderBlock = ({handleSearch, handleSearchButton, handleTitleSearch, handl
             handleEnterPress={handleEnterPress}
             search={search}
         />
+
         <ChoiceBlock
             handleTitleSearch={handleTitleSearch}
             handleGenresSearch={handleGenresSearch}

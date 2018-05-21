@@ -4,7 +4,7 @@ import FilterBlockReducer from './FilterBlockReducers';
 describe('reducer MainPageReducer', () => {
     const state = {
         search: '',
-        sortBy: '',
+        sortBy: 'release_date',
         searchBy: 'title'
     };
 
