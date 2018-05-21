@@ -33,12 +33,7 @@ class MainPage extends React.Component {
     }
 
     componentDidMount() {
-        // if (JSON.parse(localStorage.getItem('persist:root')).filter.search !== '') {
-        //     this.props.handleSearchButton();
-        //     this.props.receiveMoviesDB(this.props.query);
-        //     return;
-        // }
-        this.props.receiveMoviesDB();
+        this.props.receiveMoviesDB(this.props.location.search);
     }
 
     render() {
@@ -47,7 +42,7 @@ class MainPage extends React.Component {
             <ErrorBoundary>
                 <React.Fragment>
                         <div className="main-page container">
-                            <FilterBlock />
+                            <FilterBlock {...this.props}/>
                             {isLoadingMovies ?
                                 "Loading..." :
                                 total ?

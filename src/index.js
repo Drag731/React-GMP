@@ -6,6 +6,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import MainPage from './Features/MainPage/MainPage';
 import DescriptionPage from './Features/DescriptionPage/DescriptionPage';
 import Footer from './components/Footer/Footer'
+import PageNotFound from './components/PageNotFound/PageNotFound'
 import configureStore from './configure-store.js';
 
 const store = configureStore();
@@ -16,6 +17,7 @@ ReactDOM.render(
             <div>
                 <Route exact path="/filmzilla" component={MainPage} />
                 <Route path="/filmzilla/description/:id" component={DescriptionPage} />
+                <Route path="*" component={PageNotFound} />
                 <Footer/>
             </div>
         </BrowserRouter>

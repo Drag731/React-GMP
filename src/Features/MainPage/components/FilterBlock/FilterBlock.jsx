@@ -42,6 +42,7 @@ class FilterBlock extends React.Component {
     componentWillReceiveProps(nextProps) {
         if (this.props.sortBy !== nextProps.sortBy) {
             this.props.receiveMoviesDB(nextProps.query);
+            this.setUrlParams(nextProps);
         }
     }
 
@@ -50,15 +51,23 @@ class FilterBlock extends React.Component {
     handleSearchButton = () => {
         this.props.handleSearchButton();
         this.props.receiveMoviesDB(this.props.query);
+        this.setUrlParams();
+    };
+
+    setUrlParams = (props = this.props) => {
+        props.history.push({
+            pathname: props.location.pathname,
+            search: props.query
+        });
     };
 
     handleTitleSearch = () => { this.props.setSearchBy('title')};
 
     handleGenresSearch = () => { this.props.setSearchBy('genres')};
 
-    handleReleaseDateSort = () => { this.props.setSortBy('release_date')};
+    handleReleaseDateSort = () => { this.props.setSortBy('release_date') };
 
-    handleRatingSort = () => { this.props.setSortBy('vote_average')};
+    handleRatingSort = () => { this.props.setSortBy('vote_average') };
 
     handleEnterPress = (e) => {
         if(e.keyCode === 13) {
