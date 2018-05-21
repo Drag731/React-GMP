@@ -22,15 +22,15 @@ exports[`<FilterBlockTest  /> Renders FilterBlockTest component 1`] = `
 
 exports[`<FilterBlockTest  /> Renders FilterBlockTest component snapshot2 1`] = `
 <FilterBlock
-  handleEnterPress={[Function]}
-  handleSearch={[Function]}
-  handleSearchButton={[Function]}
+  handleEnterPress={[MockFunction]}
+  handleSearch={[MockFunction]}
+  handleSearchButton={[MockFunction]}
   query=""
-  receiveMoviesDB={[Function]}
+  receiveMoviesDB={[MockFunction]}
   search=""
   searchBy="title"
-  setSearchBy={[Function]}
-  setSortBy={[Function]}
+  setSearchBy={[MockFunction]}
+  setSortBy={[MockFunction]}
   sortBy=""
   total={3000}
 >
