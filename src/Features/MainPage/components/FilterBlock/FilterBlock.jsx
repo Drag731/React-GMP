@@ -39,6 +39,16 @@ class FilterBlock extends React.Component {
         super(props);
     }
 
+    componentDidMount() {
+        if (this.props.location.search !== "") {
+            const params = new URLSearchParams(this.props.location.search);
+            this.props.setSearchBy(params.get('searchBy'));
+            this.props.setSortBy(params.get('sortBy'));
+            this.props.handleSearch(params.get('search'));
+        }
+        this.props.receiveMoviesDB(this.props.location.search);
+    }
+
     componentWillReceiveProps(nextProps) {
         if (this.props.sortBy !== nextProps.sortBy) {
             this.props.receiveMoviesDB(nextProps.query);
@@ -78,6 +88,7 @@ class FilterBlock extends React.Component {
 
     render() {
         const { search, total, searchBy, sortBy } = this.props;
+
         return (
             <React.Fragment>
                 <HeaderBlock
