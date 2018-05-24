@@ -1,4 +1,5 @@
 export const ADD_MOVIES = 'ADD_MOVIES';
+export const GO_TO_DESCRIPTION = 'GO_TO_DESCRIPTION';
 
 export const receiveMoviesDB = (q = '') => {
     return (dispatch, getState, api) => {
@@ -15,4 +16,8 @@ export const receiveMoviesDB = (q = '') => {
 export const receiveMoviesState = payload => ({
     type: ADD_MOVIES,
     payload,
+});
+
+export const goToDescription = () => ({
+    type: GO_TO_DESCRIPTION,
 });

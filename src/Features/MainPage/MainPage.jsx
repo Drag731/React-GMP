@@ -6,7 +6,7 @@ import MovieItemsBlock from '../../components/MovieItemsBlock/MovieItemsBlock';
 import NoFilmsFound from '../../components/NoFilmsFound/NoFilmsFound';
 import FilterBlock from './components/FilterBlock/FilterBlock';
 
-import { receiveMoviesDB } from './MainPageActions';
+import { receiveMoviesDB, goToDescription } from './MainPageActions';
 
 import { getData, getTotal, getIsLoadingMovies } from './MainPageReducers';
 
@@ -24,7 +24,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
     receiveMoviesDB: (q) => receiveMoviesDB(q),
-    handleSearchButton: () => handleSearchButton()
+    handleSearchButton: () => handleSearchButton(),
+    goToDescription: () => goToDescription()
 };
 
 class MainPage extends React.Component {
@@ -36,6 +37,8 @@ class MainPage extends React.Component {
         this.props.receiveMoviesDB(this.props.location.search);
     }
 
+    handleGoToDescriptionPage = () => { this.props.goToDescription()};
+
     render() {
         const { movies, total, isLoadingMovies } = this.props;
         return (
@@ -46,9 +49,11 @@ class MainPage extends React.Component {
                             {isLoadingMovies ?
                                 "Loading..." :
                                 total ?
-                                    <MovieItemsBlock movies={movies}/> :
+                                    <MovieItemsBlock
+                                        movies={movies}
+                                        handleGoToDescriptionPage={this.handleGoToDescriptionPage}
+                                    /> :
                                     <NoFilmsFound/>
-
                             }
                         </div>
                 </React.Fragment>

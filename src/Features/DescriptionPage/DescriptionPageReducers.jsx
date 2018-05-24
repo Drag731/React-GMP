@@ -5,6 +5,7 @@ import {
 
 import {
     ADD_MOVIES,
+    GO_TO_DESCRIPTION
 } from '../MainPage/MainPageActions';
 
 const initialState = {
@@ -37,6 +38,13 @@ const DescriptionPageReducer = (state = initialState, action) => {
             return {
                 ...state,
                 isLoadingMovie: true
+            };
+        }
+
+        case GO_TO_DESCRIPTION: {
+            return {
+                ...state,
+                isLoadingMovie: true,
             };
         }
 

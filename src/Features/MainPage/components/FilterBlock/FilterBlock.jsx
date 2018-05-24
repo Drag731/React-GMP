@@ -37,14 +37,13 @@ const mapDispatchToProps = {
 class FilterBlock extends React.Component {
     constructor(props) {
         super(props);
+
+        this.handlePop = this.handlePop.bind(this);
     }
 
     componentDidMount() {
         if (this.props.location.search !== "") {
-            const params = new URLSearchParams(this.props.location.search);
-            this.props.setSearchBy(params.get('searchBy'));
-            this.props.setSortBy(params.get('sortBy'));
-            this.props.handleSearch(params.get('search'));
+            this.transitionToURL();
         }
         this.props.receiveMoviesDB(this.props.location.search);
     }
@@ -55,6 +54,21 @@ class FilterBlock extends React.Component {
             this.setUrlParams(nextProps);
         }
     }
+
+    componentWillMount() {
+        addEventListener("popstate", this.handlePop)
+    }
+
+    componentWillUnmount() {
+        removeEventListener("popstate", this.handlePop)
+    }
+
+    handlePop() {
+        if (this.props.location.search !== "") {
+            this.transitionToURL();
+        }
+        this.props.receiveMoviesDB(this.props.location.search);
+    };
 
     handleSearch = (search) => { this.props.handleSearch(search)};
 
@@ -84,6 +98,13 @@ class FilterBlock extends React.Component {
             this.props.handleEnterPress();
             this.props.receiveMoviesDB(this.props.query);
         }
+    };
+
+    transitionToURL = () => {
+        const params = new URLSearchParams(this.props.location.search);
+        this.props.setSearchBy(params.get('searchBy'));
+        this.props.setSortBy(params.get('sortBy'));
+        this.props.handleSearch(params.get('search'));
     };
 
     render() {

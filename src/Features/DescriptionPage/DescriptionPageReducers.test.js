@@ -24,6 +24,17 @@ describe('reducer DescriptionPageReducer', () => {
             }
         )
     });
+    it('should handle GO_TO_DESCRIPTION, return isLoadingMovie: true', () => {
+        expect(
+            DescriptionPageReducer({},
+                actionsMP.goToDescription()
+            )
+        ).toEqual(
+            {
+                isLoadingMovie: true,
+            }
+        )
+    });
     it('should handle ADD_MOVIE, return movie', () => {
         const payload = {
             id:424785,

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const MovieItem = ({item}) => (
+const MovieItem = ({item, handleGoToDescriptionPage}) => (
     <div className="movie-items__item b-item">
         <div className="b-item__img-wrap">
             <img className="b-item__img-pic" src={item.poster_path} alt=""/>
@@ -10,6 +10,7 @@ const MovieItem = ({item}) => (
             <Link
                 to={`/filmzilla/description/${item.id}`}
                 className="b-item__title-link"
+                onClick={handleGoToDescriptionPage}
             >
                 <span className="b-item__title-text">{item.title}</span>
             </Link>

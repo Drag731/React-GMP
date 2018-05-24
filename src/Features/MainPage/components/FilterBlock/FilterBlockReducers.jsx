@@ -4,10 +4,15 @@ import {
     SET_SEARCH_BY,
 } from './FilterBlockActions';
 
+import {
+    DEFAULT_SORT,
+    DEFAULT_SEARCH
+} from '../../../../constants/constants'
+
 const initialState = {
     search: '',
-    sortBy: 'release_date',
-    searchBy: 'title'
+    sortBy: DEFAULT_SORT,
+    searchBy: DEFAULT_SEARCH
 };
 
 const FilterReducer = (state = initialState, action) => {

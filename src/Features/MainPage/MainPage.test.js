@@ -13,23 +13,27 @@ describe('<MainPageTest  />', () => {
         movies: [],
         total: 0,
         isLoadingMovies: true,
-        receiveMoviesDB: () => {}
+        receiveMoviesDB: jest.fn(),
+        goToDescription: jest.fn()
+    };
+    const location = {
+        search: "a"
     };
     it('Renders MainPageTest component', () => {
         const tree = shallow(
-            < MainPageTest {...mockProps} />
+            < MainPageTest {...mockProps} location={location} />
         );
         expect(toJson(tree)).toMatchSnapshot();
     });
     it('Renders DescriptionPageTest component snapshot2', () => {
         const tree = shallow(
-            < MainPageTest {...mockProps} isLoadingMovies={false} />
+            < MainPageTest {...mockProps} isLoadingMovies={false} location={location}/>
         );
         expect(toJson(tree)).toMatchSnapshot();
     });
     it('Renders DescriptionPageTest component snapshot3', () => {
         const tree = shallow(
-            < MainPageTest {...mockProps} isLoadingMovies={false} total={3000} />
+            < MainPageTest {...mockProps} isLoadingMovies={false} total={3000} location={location}/>
         );
         expect(toJson(tree)).toMatchSnapshot();
     });
@@ -39,6 +43,7 @@ describe('<MainPageTest  />', () => {
             <MainPageTest
                 {...mockProps}
                 receiveMoviesDB={receiveMoviesDB}
+                location={location}
             />
         );
 

@@ -23,14 +23,63 @@ exports[`<FilterBlockTest  /> Renders FilterBlockTest component 1`] = `
 exports[`<FilterBlockTest  /> Renders FilterBlockTest component snapshot2 1`] = `
 <FilterBlock
   handleEnterPress={[MockFunction]}
-  handleSearch={[MockFunction]}
+  handleSearch={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          null,
+        ],
+        Array [
+          null,
+        ],
+      ],
+    }
+  }
   handleSearchButton={[MockFunction]}
+  location={
+    Object {
+      "search": "a",
+    }
+  }
   query=""
-  receiveMoviesDB={[MockFunction]}
+  receiveMoviesDB={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          "a",
+        ],
+        Array [
+          "a",
+        ],
+      ],
+    }
+  }
   search=""
   searchBy="title"
-  setSearchBy={[MockFunction]}
-  setSortBy={[MockFunction]}
+  setSearchBy={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          null,
+        ],
+        Array [
+          null,
+        ],
+      ],
+    }
+  }
+  setSortBy={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          null,
+        ],
+        Array [
+          null,
+        ],
+      ],
+    }
+  }
   sortBy=""
   total={3000}
 >

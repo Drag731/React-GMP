@@ -6,7 +6,29 @@ exports[`<MainPageTest  /> Renders DescriptionPageTest component snapshot2 1`] =
     <div
       className="main-page container"
     >
-      <Connect(FilterBlock) />
+      <Connect(FilterBlock)
+        goToDescription={[MockFunction]}
+        isLoadingMovies={false}
+        location={
+          Object {
+            "search": "a",
+          }
+        }
+        movies={Array []}
+        receiveMoviesDB={
+          [MockFunction] {
+            "calls": Array [
+              Array [
+                "a",
+              ],
+              Array [
+                "a",
+              ],
+            ],
+          }
+        }
+        total={0}
+      />
       <NoFilmsFound />
     </div>
   </React.Fragment>
@@ -19,8 +41,34 @@ exports[`<MainPageTest  /> Renders DescriptionPageTest component snapshot3 1`] =
     <div
       className="main-page container"
     >
-      <Connect(FilterBlock) />
+      <Connect(FilterBlock)
+        goToDescription={[MockFunction]}
+        isLoadingMovies={false}
+        location={
+          Object {
+            "search": "a",
+          }
+        }
+        movies={Array []}
+        receiveMoviesDB={
+          [MockFunction] {
+            "calls": Array [
+              Array [
+                "a",
+              ],
+              Array [
+                "a",
+              ],
+              Array [
+                "a",
+              ],
+            ],
+          }
+        }
+        total={3000}
+      />
       <MovieItemsBlock
+        handleGoToDescriptionPage={[Function]}
         movies={Array []}
       />
     </div>
@@ -34,7 +82,26 @@ exports[`<MainPageTest  /> Renders MainPageTest component 1`] = `
     <div
       className="main-page container"
     >
-      <Connect(FilterBlock) />
+      <Connect(FilterBlock)
+        goToDescription={[MockFunction]}
+        isLoadingMovies={true}
+        location={
+          Object {
+            "search": "a",
+          }
+        }
+        movies={Array []}
+        receiveMoviesDB={
+          [MockFunction] {
+            "calls": Array [
+              Array [
+                "a",
+              ],
+            ],
+          }
+        }
+        total={0}
+      />
       Loading...
     </div>
   </React.Fragment>
