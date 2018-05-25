@@ -83,8 +83,11 @@ describe('<DescriptionPageTest  />', () => {
             expect(receiveMoviesDB).toHaveBeenCalled();
         });
     it('should call handleGoSearchPage', () => {
+        const movie = {
+            genres: ['A']
+        };
         const tree = mount(
-            <BrowserRouter><DescriptionPageTest {...mockProps} match={match} isLoadingMovie={false}/></BrowserRouter>
+            <BrowserRouter><DescriptionPageTest {...mockProps} match={match} isLoadingMovie={false} movie={movie}/></BrowserRouter>
         );
         const { goToSearch } = mockProps;
         tree.find('.b-header__logo-link').first().simulate('click');

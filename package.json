@@ -14,7 +14,8 @@
     "coveragePathIgnorePatterns": [
       "<rootDir>/src/index.js",
       "<rootDir>/src/configure-store.js",
-      "<rootDir>/src/reducers.js"
+      "<rootDir>/src/reducers.js",
+      "<rootDir>/src/api/movies.js"
     ]
   },
   "scripts": {
