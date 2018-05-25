@@ -5,6 +5,7 @@ import ErrorBoundary from '../../components/ErrorBoundary';
 import HeaderLogo from '../../components/HeaderLogo/HeaderLogo';
 import MovieItemsBlock from '../../components/MovieItemsBlock/MovieItemsBlock';
 import HeaderInfo from './components/HeaderInfo/HeaderInfo';
+import PageNotFound from '../../components/PageNotFound/PageNotFound';
 
 import { receiveMovieDB, changeIsLoading, goToSearch } from './DescriptionPageActions';
 
@@ -70,11 +71,13 @@ class DescriptionPage extends React.Component {
     handleGoSearchPage = () => { this.props.goToSearch()};
 
     render() {
+        const { movie } = this.props;
         return (
             <ErrorBoundary>
                 <React.Fragment>
                     {this.props.isLoadingMovie ?
                         "Loading..." :
+                        movie.genres ?
                         <div className="description-page container">
                             <div className="description-page__header b-header">
                                 <HeaderLogo description={true} handleGoSearchPage={this.handleGoSearchPage} />
@@ -86,7 +89,8 @@ class DescriptionPage extends React.Component {
                             <MovieItemsBlock
                                 movies={this.props.movies}
                             />
-                        </div>
+                        </div> :
+                        <PageNotFound/>
                     }
                 </React.Fragment>
             </ErrorBoundary>

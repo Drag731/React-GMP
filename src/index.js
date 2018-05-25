@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { CSSTransitionGroup } from 'react-transition-group'
 
 import MainPage from './Features/MainPage/MainPage';
@@ -19,15 +19,15 @@ ReactDOM.render(
         <BrowserRouter>
             <CSSTransitionGroup
                 transitionName="page"
-                transitionEnterTimeout={500}
-                transitionLeaveTimeout={300}
+                transitionEnterTimeout={1000}
+                transitionLeaveTimeout={1000}
             >
-                <div>
+                <Switch>
                     <Route exact path="/filmzilla" component={MainPage} />
                     <Route path="/filmzilla/description/:id" component={DescriptionPage} />
                     <Route path="*" component={PageNotFound} />
-                    <Footer/>
-                </div>
+                </Switch>
+                <Footer/>
             </CSSTransitionGroup>
         </BrowserRouter>
     </Provider>, document.getElementById('root')
