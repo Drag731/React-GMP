@@ -17,18 +17,20 @@ const store = configureStore();
 ReactDOM.render(
     <Provider store={store}>
         <BrowserRouter>
-            <CSSTransitionGroup
-                transitionName="page"
-                transitionEnterTimeout={1000}
-                transitionLeaveTimeout={1000}
-            >
-                <Switch>
-                    <Route exact path="/filmzilla" component={MainPage} />
-                    <Route path="/filmzilla/description/:id" component={DescriptionPage} />
-                    <Route path="*" component={PageNotFound} />
-                </Switch>
-                <Footer/>
-            </CSSTransitionGroup>
+            <Route render={({ location }) => (
+                <CSSTransitionGroup
+                    transitionName="page"
+                    transitionEnterTimeout={1000}
+                    transitionLeaveTimeout={1000}
+                >
+                    <Switch key={location.key} location={location}>
+                        <Route exact path="/filmzilla" component={MainPage} />
+                        <Route exact path="/filmzilla/description/:id" component={DescriptionPage} />
+                        <Route path="*" component={PageNotFound} />
+                    </Switch>
+                    <Footer/>
+                </CSSTransitionGroup>
+            )} />
         </BrowserRouter>
     </Provider>, document.getElementById('root')
 );
