@@ -3,7 +3,30 @@
   margin:0 auto;
   &__header {
 	  padding: 10px 30px;
-	  background-color: pink;
+	  position: relative;
+	  &:before {
+		  content: "";
+		  background: url('https://pluggedin.ru/images/avengers-infinity-war-mash-up-mcu-marvel-2018-1024x576-bigTopImage.jpg');
+		  background-size:100% 100%;
+		  top: 0;
+		  left: 0;
+		  bottom: 0;
+		  right: 0;
+		  position: absolute;
+		  z-index: -2;
+	  }
+	  &:after {
+		  content: "";
+		  background: grey;
+		  background-size:100% 100%;
+		  top: 0;
+		  left: 0;
+		  bottom: 0;
+		  right: 0;
+		  position: absolute;
+		  z-index: -1;
+		  opacity: 0.3;
+	  }
 	}
 	&__result {
 		padding: 10px 30px;
