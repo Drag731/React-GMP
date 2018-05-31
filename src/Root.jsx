@@ -3,25 +3,29 @@ import 'babel-polyfill';
 import React from 'react';
 import { hot } from 'react-hot-loader';
 import { Route, Link, Switch, Redirect } from 'react-router-dom';
+import ReactDOM from 'react-dom';
+import {Provider} from 'react-redux';
 
-import NoFilmFound from './components/NoFilmsFound/NoFilmsFound';
-import PageNotFound from './components/PageNotFound/PageNotFound';
+import MainPage from './Features/MainPage/MainPage';
+import DescriptionPage from './Features/DescriptionPage/DescriptionPage';
+import Footer from './components/Footer/Footer'
+import PageNotFound from './components/PageNotFound/PageNotFound'
 
-const Root = ({ Router, location, context }) => (
-    <Router location={location} context={context}>
-        <div>
-            <h1>Server Side Renderig</h1>
-            <ul>
-                <li><Link to="/">Home</Link></li>
-                <li><Link to="/users">Users</Link></li>
-            </ul>
-            <Switch>
-                <Route exact path="/" component={NoFilmFound} />
-                <Route path="/users" component={PageNotFound} />
-                <Redirect to="/" />
-            </Switch>
-        </div>
-    </Router>
+import './style.scss'
+
+const Root = ({ Router, location, context, store }) => (
+    <Provider store={store}>
+        <Router location={location} context={context}>
+            <React.Fragment>
+                <Switch>
+                    <Route exact path="/filmzilla" component={MainPage} />
+                    <Route path="/filmzilla/description/:id" component={DescriptionPage} />
+                    <Route path="*" component={PageNotFound} />
+                </Switch>
+                <Footer/>
+            </React.Fragment>
+        </Router>
+    </Provider>
 );
 
 Root.defaultProps = {
