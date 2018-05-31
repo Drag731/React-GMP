@@ -11,7 +11,6 @@ const Root = ({ Router, location, context }) => (
     <Router location={location} context={context}>
         <div>
             <h1>Server Side Renderig</h1>
-            <Hello name="World" />
             <ul>
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/users">Users</Link></li>
