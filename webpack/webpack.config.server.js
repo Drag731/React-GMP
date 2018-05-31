@@ -14,7 +14,7 @@ module.exports = merge(common, {
     module: {
         rules: [
             {
-                test: /\.css$/,
+                test: /\.s?css$/,
                 include: /src/,
                 use: [
                     'css-loader/locals', // It doesn't embed CSS but only exports the identifier mappings.

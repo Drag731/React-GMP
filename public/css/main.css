@@ -1,0 +1,16 @@
+.b-not-found {
+  min-height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .b-not-found__wrap {
+    font-size: 30px; }
+
+.b-not-found {
+  min-height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .b-not-found__wrap {
+    font-size: 30px; }
+

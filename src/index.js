@@ -1,9 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Root from './Root';
+import { BrowserRouter } from 'react-router-dom';
 
-ReactDOM.hydrate (
-    <Root/>, document.getElementById('root')
+const root = (
+    <Root
+        Router={BrowserRouter}
+    />
 );
 
-module.hot.accept();
+ReactDOM.hydrate (
+    root, document.getElementById('root')
+);
+
+

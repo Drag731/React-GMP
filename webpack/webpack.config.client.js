@@ -19,12 +19,16 @@ module.exports = merge(common, {
     module: {
         rules: [
             {
-                test: /\.css$/,
-                include: /src/,
+                test: /\.s?css$/,
                 use: [
                     isDevMod ? 'style-loader' : MiniCssExtractPlugin.loader,
                     'css-loader',
+                    "sass-loader"
                 ],
+            },
+            {
+                test: /\.(png|svg|jpg|gif)$/,
+                use: ['file-loader']
             },
         ],
     },
