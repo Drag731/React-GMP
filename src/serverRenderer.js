@@ -38,37 +38,39 @@ export default function serverRenderer() {
 
         // For each route that matches
         const promises = matchRoutes(routes, url).map(({route, match}) => {
-            console.log("match" , match);
             // Load the data for that route. Include match information
             // so route parameters can be passed through.
+            console.log(route);
+            console.log(url);
             return route.loadData ? store.dispatch(route.loadData(match)) : Promise.resolve(null)
-
         });
 
-        const root = (
-            <Root
-                context={context}
-                location={url}
-                Router={StaticRouter}
-                store={store}
-            />
-        );
+        setTimeout(() => {
+            Promise.all(promises).then(() => {
+                const root = (
+                    <Root
+                        context={context}
+                        location={url}
+                        Router={StaticRouter}
+                        store={store}
+                    />
+                );
 
-        Promise.all(promises).then(() => {
-            const htmlString = renderToString(root);
+                const htmlString = renderToString(root);
 
-            // context.url will contain the URL to redirect to if a <Redirect> was used
-            if (context.url) {
-                res.writeHead(302, {
-                    Location: context.url,
-                });
-                res.end();
-                return;
-            }
+                // context.url will contain the URL to redirect to if a <Redirect> was used
+                if (context.url) {
+                    res.writeHead(302, {
+                        Location: context.url,
+                    });
+                    res.end();
+                    return;
+                }
 
-            const preloadedState = store.getState();
+                const preloadedState = store.getState();
 
-            res.send(renderHTML(htmlString, preloadedState));
-        })
+                res.send(renderHTML(htmlString, preloadedState));
+            })
+        }, 1000);
     };
 }

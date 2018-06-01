@@ -9,7 +9,7 @@ export const routes = [
         path: "/filmzilla",
         exact: true,
         component: MainPage,
-        loadData: (q = '') => receiveMoviesDB(q)
+        loadData: () => receiveMoviesDB()
     },
     {
         path: "/filmzilla/description/:id",
