@@ -38,7 +38,7 @@ class FilterBlock extends React.Component {
     constructor(props) {
         super(props);
 
-        // this.handlePop = this.handlePop.bind(this);
+        this.handlePop = this.handlePop.bind(this);
     }
 
     componentDidMount() {
@@ -55,22 +55,24 @@ class FilterBlock extends React.Component {
         }
     }
 
-    // componentWillMount() {
-    //     addEventListener("popstate", this.handlePop)
-    // }
-    //
-    // componentWillUnmount() {
-    //     removeEventListener("popstate", this.handlePop)
-    // }
-    //
-    // handlePop() {
-    //     if (this.props.location.search !== "") {
-    //         this.transitionToURL();
-    //     }
-    //     this.props.receiveMoviesDB(this.props.location.search);
-    // };
+    componentWillMount() {
+        if (!this.props.staticContext || !this.props.staticContext.isServer) {
+            addEventListener("popstate", this.handlePop)
+        }
+    }
 
-    handleSearch = (search) => { this.props.handleSearch(search)};
+    componentWillUnmount() {
+        removeEventListener("popstate", this.handlePop)
+    }
+
+    handlePop() {
+        if (this.props.location.search !== "") {
+            this.transitionToURL();
+        }
+        this.props.receiveMoviesDB(this.props.location.search);
+    };
+
+    handleSearch = (search) => { this.props.handleSearch(search) };
 
     handleSearchButton = () => {
         this.props.handleSearchButton();
@@ -97,6 +99,7 @@ class FilterBlock extends React.Component {
         if(e.keyCode === 13) {
             this.props.handleEnterPress();
             this.props.receiveMoviesDB(this.props.query);
+            this.setUrlParams();
         }
     };
 

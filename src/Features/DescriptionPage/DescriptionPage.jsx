@@ -36,28 +36,12 @@ class DescriptionPage extends React.Component {
         this.state = {
             isLoadingMovie: true
         };
-
-        // this.handlePop = this.handlePop.bind(this);
     }
 
     componentDidMount() {
         this.props.receiveMovieDB(this.props.match.params.id);
         this.props.receiveMoviesDB()
     }
-
-    // componentWillMount() {
-    //     addEventListener("popstate", this.handlePop)
-    // }
-    //
-    // componentWillUnmount() {
-    //     removeEventListener("popstate", this.handlePop)
-    // }
-    //
-    // handlePop() {
-    //     this.props.changeIsLoading();
-    //     this.props.receiveMovieDB(this.props.match.params.id);
-    //     this.props.receiveMoviesDB(`?${this.props.genres[0]}`)
-    // };
 
     componentWillReceiveProps(nextProps) {
         const {id} = nextProps.match.params;

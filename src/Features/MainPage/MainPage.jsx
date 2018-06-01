@@ -33,10 +33,6 @@ class MainPage extends React.Component {
         super(props);
     }
 
-    componentDidMount() {
-        this.props.receiveMoviesDB(this.props.location.search);
-    }
-
     handleGoToDescriptionPage = () => { this.props.goToDescription()};
 
     render() {

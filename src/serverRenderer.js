@@ -31,7 +31,7 @@ export default function serverRenderer() {
     return (req, res) => {
         const store = configureStore();
         // This context object contains the results of the render
-        const context = {};
+        const context = {isServer: true};
 
         const root = (
             <Root
