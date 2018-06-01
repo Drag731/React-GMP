@@ -41,12 +41,12 @@ class FilterBlock extends React.Component {
         this.handlePop = this.handlePop.bind(this);
     }
 
-    componentDidMount() {
-        if (this.props.location.search !== "") {
-            this.transitionToURL();
-        }
-        this.props.receiveMoviesDB(this.props.location.search);
-    }
+    // componentDidMount() {
+    //     if (this.props.location.search !== "") {
+    //         this.transitionToURL();
+    //     }
+    //     this.props.receiveMoviesDB(this.props.location.search);
+    // }
 
     componentWillReceiveProps(nextProps) {
         if (this.props.sortBy !== nextProps.sortBy) {
@@ -59,6 +59,10 @@ class FilterBlock extends React.Component {
         if (!this.props.staticContext || !this.props.staticContext.isServer) {
             addEventListener("popstate", this.handlePop)
         }
+        if (!this.props.staticContext && this.props.location.search !== "") {
+            this.transitionToURL();
+        }
+        this.props.receiveMoviesDB(this.props.location.search);
     }
 
     componentWillUnmount() {

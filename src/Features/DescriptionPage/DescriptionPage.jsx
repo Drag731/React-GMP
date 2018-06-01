@@ -32,13 +32,9 @@ const mapDispatchToProps = {
 class DescriptionPage extends React.Component {
     constructor(props) {
         super(props);
-
-        this.state = {
-            isLoadingMovie: true
-        };
     }
 
-    componentDidMount() {
+    componentWillMount() {
         this.props.receiveMovieDB(this.props.match.params.id);
         this.props.receiveMoviesDB()
     }
