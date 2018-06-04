@@ -19,7 +19,11 @@ const Root = ({ Router, location, context, store }) => (
     <Provider store={store}>
         <Router location={location} context={context}>
             <React.Fragment>
-                { renderRoutes(routes) }
+                <Switch>
+                    <Route exact path="/filmzilla" component={MainPage} />
+                    <Route path="/filmzilla/description/:id" component={DescriptionPage} />
+                    <Route path="*" component={PageNotFound} />
+                </Switch>
                 <Footer/>
             </React.Fragment>
         </Router>

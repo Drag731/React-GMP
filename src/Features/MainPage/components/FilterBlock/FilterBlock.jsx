@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import ResultBlock from '../ResultBlock/ResultBlock';
 import HeaderBlock from '../HeaderBlock/HeaderBlock';
@@ -25,14 +26,15 @@ const mapStateToProps = state => ({
     sortBy: state.filter.sortBy,
 });
 
-const mapDispatchToProps = {
+const mapDispatchToProps = dispatch => bindActionCreators ({
     receiveMoviesDB: (q) => receiveMoviesDB(q),
     handleSearch: (search) => handleSearch(search),
     setSearchBy: payload => setSearchBy(payload),
     setSortBy: payload => setSortBy(payload),
     handleSearchButton: () => handleSearchButton(),
     handleEnterPress: () => handleEnterPress()
-};
+}, dispatch);
+
 
 class FilterBlock extends React.Component {
     constructor(props) {
@@ -62,6 +64,8 @@ class FilterBlock extends React.Component {
         if (!this.props.staticContext && this.props.location.search !== "") {
             this.transitionToURL();
         }
+        console.log(this.props);
+
         this.props.receiveMoviesDB(this.props.location.search);
     }
 

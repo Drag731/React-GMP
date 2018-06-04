@@ -2,7 +2,7 @@ import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { StaticRouter } from 'react-router-dom';
 import Root from './Root';
-import configureStore from '../src/configure-store';
+import configureStore from '../src/modules/configure-store';
 import { renderRoutes, matchRoutes } from "react-router-config"
 import { routes } from "./routes"
 
@@ -32,45 +32,38 @@ function renderHTML(html, preloadedState) {
 export default function serverRenderer() {
     return (req, res) => {
         const store = configureStore();
-        const { url } = req;
         // This context object contains the results of the render
         const context = {isServer: true};
 
-        // For each route that matches
-        const promises = matchRoutes(routes, url).map(({route, match}) => {
-            // Load the data for that route. Include match information
-            // so route parameters can be passed through.
-            console.log(route);
-            console.log(url);
-            return route.loadData ? store.dispatch(route.loadData(match)) : Promise.resolve(null)
+        const root = (
+            <Root
+                context={context}
+                location={req.url}
+                Router={StaticRouter}
+                store={store}
+            />
+        );
+
+        store.runSaga().done.then(() => {
+            const htmlString = renderToString(root);
+
+            // context.url will contain the URL to redirect to if a <Redirect> was used
+            if (context.url) {
+                res.writeHead(302, {
+                    Location: context.url,
+                });
+                res.end();
+                return;
+            }
+
+            const preloadedState = store.getState();
+
+            res.send(renderHTML(htmlString, preloadedState));
         });
 
-        setTimeout(() => {
-            Promise.all(promises).then(() => {
-                const root = (
-                    <Root
-                        context={context}
-                        location={url}
-                        Router={StaticRouter}
-                        store={store}
-                    />
-                );
-
-                const htmlString = renderToString(root);
-
-                // context.url will contain the URL to redirect to if a <Redirect> was used
-                if (context.url) {
-                    res.writeHead(302, {
-                        Location: context.url,
-                    });
-                    res.end();
-                    return;
-                }
-
-                const preloadedState = store.getState();
-
-                res.send(renderHTML(htmlString, preloadedState));
-            })
-        }, 1000);
-    };
+        // Do first render, starts initial actions.
+        renderToString(root);
+        // When the first render is finished, send the END action to redux-saga.
+        store.close();
+    }
 }
