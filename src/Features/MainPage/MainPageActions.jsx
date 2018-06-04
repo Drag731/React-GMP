@@ -4,22 +4,9 @@ export const ADD_MOVIES = 'ADD_MOVIES';
 export const GO_TO_DESCRIPTION = 'GO_TO_DESCRIPTION';
 export const FETCH_MOVIES = 'FETCH_MOVIES';
 
-import axios from 'axios';
-
-// export const receiveMoviesDB = (q = '') => {
-//     return (dispatch, getState, api) => {
-//         api(`movies${q}`)
-//             .then(response => {
-//                 dispatch(receiveMoviesState(response.data));
-//             })
-//             .catch(() => {
-//                 throw new Error('I crashed!');
-//             })
-//     };
-// };
-
-export const fetchMovies = () => ({
+export const fetchMovies = (query) => ({
     type: FETCH_MOVIES,
+    query
 });
 
 export const receiveMoviesState = payload => ({
@@ -32,17 +19,17 @@ export const goToDescription = () => ({
 });
 
 // Sagas
-export function* receiveMoviesDB(q = '') {
-    const response = yield call(getMovies, q);
+export function* receiveMoviesDB({query}) {
+    const response = yield call(getMovies, query);
 
     yield put(receiveMoviesState(response));
 }
 
 export function* watchFetchMovies() {
-    yield takeEvery('FETCH_MOVIES', receiveMoviesDB);
+    yield takeLatest('FETCH_MOVIES', receiveMoviesDB);
 }
 
-export function* usersSaga() {
+export function* moviesSaga() {
     yield all([
         watchFetchMovies(),
     ]);

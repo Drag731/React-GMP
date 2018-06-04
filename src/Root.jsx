@@ -2,11 +2,9 @@ import 'isomorphic-fetch';
 import 'babel-polyfill';
 import React from 'react';
 import { hot } from 'react-hot-loader';
-import { Route, Link, Switch, Redirect } from 'react-router-dom';
-import ReactDOM from 'react-dom';
+import { Route, Switch } from 'react-router-dom';
 import {Provider} from 'react-redux';
-import { renderRoutes, matchRoutes } from "react-router-config"
-import { routes } from "./routes"
+
 
 import MainPage from './Features/MainPage/MainPage';
 import DescriptionPage from './Features/DescriptionPage/DescriptionPage';

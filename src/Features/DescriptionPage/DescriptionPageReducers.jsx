@@ -1,6 +1,7 @@
 import {
     ADD_MOVIE,
-    CHANGE_LOADING
+    CHANGE_LOADING,
+    FETCH_MOVIE
 } from './DescriptionPageActions';
 
 import {
@@ -24,6 +25,13 @@ const DescriptionPageReducer = (state = initialState, action) => {
                 isLoadingMovie: false,
                 movie: action.payload,
                 genres: action.payload.genres
+            };
+        }
+
+        case FETCH_MOVIE: {
+            return {
+                ...state,
+                isLoadingMovie: true,
             };
         }
 

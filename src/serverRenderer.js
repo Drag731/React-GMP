@@ -3,8 +3,6 @@ import { renderToString } from 'react-dom/server';
 import { StaticRouter } from 'react-router-dom';
 import Root from './Root';
 import configureStore from '../src/modules/configure-store';
-import { renderRoutes, matchRoutes } from "react-router-config"
-import { routes } from "./routes"
 
 function renderHTML(html, preloadedState) {
     return `
@@ -43,7 +41,7 @@ export default function serverRenderer() {
                 store={store}
             />
         );
-console.log(store);
+
         store.runSaga().done.then(() => {
             const htmlString = renderToString(root);
 

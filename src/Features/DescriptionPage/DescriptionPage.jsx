@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import ErrorBoundary from '../../components/ErrorBoundary';
 import HeaderLogo from '../../components/HeaderLogo/HeaderLogo';
@@ -7,11 +8,11 @@ import MovieItemsBlock from '../../components/MovieItemsBlock/MovieItemsBlock';
 import HeaderInfo from './components/HeaderInfo/HeaderInfo';
 import PageNotFound from '../../components/PageNotFound/PageNotFound';
 
-import { receiveMovieDB, changeIsLoading, goToSearch } from './DescriptionPageActions';
+import { changeIsLoading, goToSearch, fetchMovie } from './DescriptionPageActions';
 
 import { getMovie, getMovies, getGenre, getIsLoadingMovie } from './DescriptionPageReducers';
 
-import { receiveMoviesDB } from '../MainPage/MainPageActions';
+import { fetchMovies } from '../MainPage/MainPageActions';
 
 import './DescriptionPage.scss'
 
@@ -22,12 +23,12 @@ const mapStateToProps = state => ({
     movies: getMovies(state)
 });
 
-const mapDispatchToProps = {
-    receiveMovieDB: (id) => receiveMovieDB(id),
-    receiveMoviesDB: (q) => receiveMoviesDB(q),
+const mapDispatchToProps = dispatch => bindActionCreators ({
     changeIsLoading: () => changeIsLoading(),
-    goToSearch: () => goToSearch()
-};
+    goToSearch: () => goToSearch(),
+    fetchMovie: (id) => fetchMovie(id),
+    fetchMovies: () => fetchMovies(),
+}, dispatch);
 
 class DescriptionPage extends React.Component {
     constructor(props) {
@@ -35,16 +36,16 @@ class DescriptionPage extends React.Component {
     }
 
     componentWillMount() {
-        this.props.receiveMovieDB(this.props.match.params.id);
-        this.props.receiveMoviesDB()
+        this.props.fetchMovie(this.props.match.params.id);
+        this.props.fetchMovies()
     }
 
     componentWillReceiveProps(nextProps) {
         const {id} = nextProps.match.params;
         if(id && this.props.match.params.id !== id) {
             this.props.changeIsLoading();
-            this.props.receiveMovieDB(id);
-            this.props.receiveMoviesDB(`?${nextProps.genres[0]}`)
+            this.props.fetchMovie(id);
+            this.props.fetchMovies(`?${nextProps.genres[0]}`)
         }
     };
 

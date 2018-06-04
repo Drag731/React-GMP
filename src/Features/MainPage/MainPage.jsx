@@ -6,25 +6,19 @@ import MovieItemsBlock from '../../components/MovieItemsBlock/MovieItemsBlock';
 import NoFilmsFound from '../../components/NoFilmsFound/NoFilmsFound';
 import FilterBlock from './components/FilterBlock/FilterBlock';
 
-import { receiveMoviesDB, goToDescription } from './MainPageActions';
+import { goToDescription } from './MainPageActions';
 
 import { getData, getTotal, getIsLoadingMovies } from './MainPageReducers';
-
-import { handleSearchButton } from './components/FilterBlock/FilterBlockActions'
-import { getQuery } from './components/FilterBlock/FilterBlockReducers';
 
 import './MainPage.scss'
 
 const mapStateToProps = state => ({
-    query: getQuery(state),
     movies: getData(state),
     total: getTotal(state),
     isLoadingMovies: getIsLoadingMovies(state),
 });
 
 const mapDispatchToProps = {
-    receiveMoviesDB: (q) => receiveMoviesDB(q),
-    handleSearchButton: () => handleSearchButton(),
     goToDescription: () => goToDescription()
 };
 

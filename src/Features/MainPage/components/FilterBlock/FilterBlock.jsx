@@ -15,7 +15,7 @@ import {
 
 import { getQuery } from './FilterBlockReducers';
 
-import { receiveMoviesDB, fetchMovies } from '../../MainPageActions';
+import { fetchMovies } from '../../MainPageActions';
 import { getTotal } from '../../MainPageReducers';
 
 const mapStateToProps = state => ({
@@ -27,13 +27,12 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators ({
-    receiveMoviesDB: (q) => receiveMoviesDB(q),
     handleSearch: (search) => handleSearch(search),
     setSearchBy: payload => setSearchBy(payload),
     setSortBy: payload => setSortBy(payload),
     handleSearchButton: () => handleSearchButton(),
     handleEnterPress: () => handleEnterPress(),
-    fetchMovies: () => fetchMovies()
+    fetchMovies: (query) => fetchMovies(query)
 }, dispatch);
 
 
@@ -53,7 +52,7 @@ class FilterBlock extends React.Component {
 
     componentWillReceiveProps(nextProps) {
         if (this.props.sortBy !== nextProps.sortBy) {
-            this.props.receiveMoviesDB(nextProps.query);
+            this.props.fetchMovies(nextProps.query);
             this.setUrlParams(nextProps);
         }
     }
@@ -66,7 +65,7 @@ class FilterBlock extends React.Component {
             this.transitionToURL();
         }
 
-        this.props.fetchMovies();
+        this.props.fetchMovies(this.props.location.search);
     }
 
     componentWillUnmount() {
@@ -77,14 +76,14 @@ class FilterBlock extends React.Component {
         if (this.props.location.search !== "") {
             this.transitionToURL();
         }
-        this.props.receiveMoviesDB(this.props.location.search);
+        this.props.fetchMovies(this.props.location.search);
     };
 
     handleSearch = (search) => { this.props.handleSearch(search) };
 
     handleSearchButton = () => {
         this.props.handleSearchButton();
-        this.props.receiveMoviesDB(this.props.query);
+        this.props.fetchMovies(this.props.query);
         this.setUrlParams();
     };
 
@@ -106,7 +105,7 @@ class FilterBlock extends React.Component {
     handleEnterPress = (e) => {
         if(e.keyCode === 13) {
             this.props.handleEnterPress();
-            this.props.receiveMoviesDB(this.props.query);
+            this.props.fetchMovies(this.props.query);
             this.setUrlParams();
         }
     };

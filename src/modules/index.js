@@ -1,12 +1,17 @@
 import { all } from 'redux-saga/effects';
 
 import {
-    usersSaga,
+    moviesSaga,
 } from '../Features/MainPage/MainPageActions';
+
+import {
+    descriptionSaga,
+} from '../Features/DescriptionPage/DescriptionPageActions';
 
 function* rootSaga() {
     yield all([
-        usersSaga(),
+        moviesSaga(),
+        descriptionSaga()
     ]);
 }
 
