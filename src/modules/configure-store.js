@@ -31,7 +31,8 @@ if (process.browser &&
 // };
 
 export default (initialState) => {
-    const store = createStore(reducers, initialState, applyMiddleware(sagaMiddleware));
+    const store = createStore(reducers, initialState, compose(applyMiddleware(sagaMiddleware), devTools));
+
     sagaMiddleware.run(rootSaga);
     store.runSaga = () => sagaMiddleware.run(rootSaga);
     store.close = () => store.dispatch(END);

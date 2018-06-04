@@ -15,7 +15,7 @@ import {
 
 import { getQuery } from './FilterBlockReducers';
 
-import { receiveMoviesDB } from '../../MainPageActions';
+import { receiveMoviesDB, fetchMovies } from '../../MainPageActions';
 import { getTotal } from '../../MainPageReducers';
 
 const mapStateToProps = state => ({
@@ -32,7 +32,8 @@ const mapDispatchToProps = dispatch => bindActionCreators ({
     setSearchBy: payload => setSearchBy(payload),
     setSortBy: payload => setSortBy(payload),
     handleSearchButton: () => handleSearchButton(),
-    handleEnterPress: () => handleEnterPress()
+    handleEnterPress: () => handleEnterPress(),
+    fetchMovies: () => fetchMovies()
 }, dispatch);
 
 
@@ -64,9 +65,8 @@ class FilterBlock extends React.Component {
         if (!this.props.staticContext && this.props.location.search !== "") {
             this.transitionToURL();
         }
-        console.log(this.props);
 
-        this.props.receiveMoviesDB(this.props.location.search);
+        this.props.fetchMovies();
     }
 
     componentWillUnmount() {

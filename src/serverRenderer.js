@@ -43,7 +43,7 @@ export default function serverRenderer() {
                 store={store}
             />
         );
-
+console.log(store);
         store.runSaga().done.then(() => {
             const htmlString = renderToString(root);
 

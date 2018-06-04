@@ -1,5 +1,6 @@
 import {
     ADD_MOVIES,
+    FETCH_MOVIES
 } from './MainPageActions';
 
 import {
@@ -27,6 +28,13 @@ const MoviesReducer = (state = initialState, action) => {
                 isLoadingMovies: false,
                 movies: action.payload.data,
                 total: action.payload.total
+            };
+        }
+
+        case FETCH_MOVIES: {
+            return {
+                ...state,
+                isLoadingMovies: true,
             };
         }
 
