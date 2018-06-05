@@ -41,36 +41,36 @@ const MoviesReducer = (state = initialState, action) => {
         case SEARCH_BUTTON: {
             return {
                 ...state,
-                isLoadingMovies: true,
-                movies: [],
-                total: 0
+                // isLoadingMovies: true,
+                // movies: [],
+                // total: 0
             };
         }
 
         case GO_TO_SEARCH: {
             return {
                 ...state,
-                isLoadingMovies: true,
-                movies: [],
-                total: 0
+                // isLoadingMovies: true,
+                // movies: [],
+                // total: 0
             };
         }
 
         case SET_SORT_BY: {
             return {
                 ...state,
-                isLoadingMovies: true,
-                movies: [],
-                total: 0
+                // isLoadingMovies: true,
+                // movies: [],
+                // total: 0
             };
         }
 
         case PRESS_ENTER_BUTTON: {
             return {
                 ...state,
-                isLoadingMovies: true,
-                movies: [],
-                total: 0
+                // isLoadingMovies: true,
+                // movies: [],
+                // total: 0
             };
         }
 

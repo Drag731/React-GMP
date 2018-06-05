@@ -52,7 +52,9 @@ class FilterBlock extends React.Component {
 
     componentWillReceiveProps(nextProps) {
         if (this.props.sortBy !== nextProps.sortBy) {
-            this.props.fetchMovies(nextProps.query);
+            if (!this.props.total) {
+                this.props.fetchMovies(nextProps.query);
+            }
             this.setUrlParams(nextProps);
         }
     }
@@ -65,7 +67,9 @@ class FilterBlock extends React.Component {
             this.transitionToURL();
         }
 
-        this.props.fetchMovies(this.props.location.search);
+        if (!this.props.total) {
+            this.props.fetchMovies(this.props.location.search);
+        }
     }
 
     componentWillUnmount() {

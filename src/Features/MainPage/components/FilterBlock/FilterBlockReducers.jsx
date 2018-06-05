@@ -21,7 +21,6 @@ const FilterReducer = (state = initialState, action) => {
         case SET_SORT_BY: {
             return {
                 ...state,
-                isLoadingMovies: true,
                 sortBy: action.payload
             };
         }

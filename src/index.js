@@ -4,8 +4,10 @@ import Root from './Root';
 import { BrowserRouter } from 'react-router-dom';
 import configureStore from './modules/configure-store.js';
 
+const preloadedState = window.PRELOADED_STATE;
+delete window.PRELOADED_STATE;
 
-const store = configureStore(window.PRELOADED_STATE);
+const store = configureStore(preloadedState);
 
 const root = (
     <Root
