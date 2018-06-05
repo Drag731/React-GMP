@@ -13,7 +13,7 @@ import { getMovie, getMovies, getGenre, getIsLoadingMovie } from './DescriptionP
 
 import { receiveMoviesDB } from '../MainPage/MainPageActions';
 
-import './DescriptionPage.scss'
+// import './DescriptionPage.scss'
 
 const mapStateToProps = state => ({
     movie: getMovie(state),
