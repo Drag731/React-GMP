@@ -52,9 +52,7 @@ class FilterBlock extends React.Component {
 
     componentWillReceiveProps(nextProps) {
         if (this.props.sortBy !== nextProps.sortBy) {
-            if (!this.props.total) {
-                this.props.fetchMovies(nextProps.query);
-            }
+            this.props.fetchMovies(nextProps.query);
             this.setUrlParams(nextProps);
         }
     }

@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const merge = require('webpack-merge');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const ExtractCssChunks = require('extract-css-chunks-webpack-plugin');
 const common = require('./webpack.config.common');
 
 const isDevMod = process.env.NODE_ENV === 'development';
@@ -21,7 +22,7 @@ module.exports = merge(common, {
             {
                 test: /\.s?css$/,
                 use: [
-                    isDevMod ? 'style-loader' : MiniCssExtractPlugin.loader,
+                    isDevMod ? 'style-loader' : ExtractCssChunks.loader,
                     'css-loader',
                     "sass-loader"
                 ],
@@ -32,7 +33,11 @@ module.exports = merge(common, {
             },
         ],
     },
-
+    optimization: {
+        splitChunks: {
+            chunks: 'all'
+        }
+    },
     plugins: [
         !isDevMod && new CleanWebpackPlugin('./public', { root: path.resolve(__dirname, '../') }),
         isDevMod && new webpack.HotModuleReplacementPlugin(),
@@ -42,8 +47,14 @@ module.exports = merge(common, {
          * It supports On-Demand-Loading of CSS and SourceMaps.
          * @link https://webpack.js.org/plugins/mini-css-extract-plugin/#minimizing-for-production
          */
-        new MiniCssExtractPlugin({
-            filename: 'css/[name].css',
-        }),
+        // new MiniCssExtractPlugin({
+        //     filename: 'css/[name].css',
+        // }),
+        new ExtractCssChunks()
+        // new webpack.optimize.CommonsChunkPlugin({
+        //     names: ['bootstrap'],
+        //     filename: 'js/[name].js',
+        //     minChunks: Infinity
+        // })
     ].filter(Boolean),
 });
