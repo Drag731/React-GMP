@@ -1,0 +1,416 @@
+{
+  "./../node_modules/webpack/buildin/module.js": [
+    {
+      "id": "./node_modules/webpack/buildin/module.js",
+      "name": "./node_modules/webpack/buildin/module.js",
+      "file": "js/main.js",
+      "publicPath": "public/js/main.js"
+    }
+  ],
+  "../public/react-loadable.json": [
+    {
+      "id": "./public/react-loadable.json",
+      "name": "./public/react-loadable.json",
+      "file": "js/main.js",
+      "publicPath": "public/js/main.js"
+    }
+  ],
+  "../Features/DescriptionPage/DescriptionPageActions": [
+    {
+      "id": "./src/Features/DescriptionPage/DescriptionPageActions.jsx",
+      "name": "./src/Features/DescriptionPage/DescriptionPageActions.jsx",
+      "file": "js/main.js",
+      "publicPath": "public/js/main.js"
+    }
+  ],
+  "./Features/DescriptionPage/DescriptionPageReducers": [
+    {
+      "id": "./src/Features/DescriptionPage/DescriptionPageReducers.jsx",
+      "name": "./src/Features/DescriptionPage/DescriptionPageReducers.jsx",
+      "file": "js/main.js",
+      "publicPath": "public/js/main.js"
+    }
+  ],
+  "../Features/MainPage/MainPageActions": [
+    {
+      "id": "./src/Features/MainPage/MainPageActions.jsx",
+      "name": "./src/Features/MainPage/MainPageActions.jsx",
+      "file": "js/main.js",
+      "publicPath": "public/js/main.js"
+    }
+  ],
+  "./Features/MainPage/MainPageReducers": [
+    {
+      "id": "./src/Features/MainPage/MainPageReducers.jsx",
+      "name": "./src/Features/MainPage/MainPageReducers.jsx",
+      "file": "js/main.js",
+      "publicPath": "public/js/main.js"
+    }
+  ],
+  "./components/FilterBlock/FilterBlockActions": [
+    {
+      "id": "./src/Features/MainPage/components/FilterBlock/FilterBlockActions.jsx",
+      "name": "./src/Features/MainPage/components/FilterBlock/FilterBlockActions.jsx",
+      "file": "js/main.js",
+      "publicPath": "public/js/main.js"
+    }
+  ],
+  "./Features/MainPage/components/FilterBlock/FilterBlockReducers": [
+    {
+      "id": "./src/Features/MainPage/components/FilterBlock/FilterBlockReducers.jsx",
+      "name": "./src/Features/MainPage/components/FilterBlock/FilterBlockReducers.jsx",
+      "file": "js/main.js",
+      "publicPath": "public/js/main.js"
+    }
+  ],
+  "./Root": [
+    {
+      "id": "./src/Root.jsx",
+      "name": "./src/Root.jsx",
+      "file": "js/main.js",
+      "publicPath": "public/js/main.js"
+    }
+  ],
+  "../../api/movies": [
+    {
+      "id": "./src/api/movies.js",
+      "name": "./src/api/movies.js",
+      "file": "js/main.js",
+      "publicPath": "public/js/main.js"
+    }
+  ],
+  "./components/Footer/Footer": [
+    {
+      "id": "./src/components/Footer/Footer.jsx",
+      "name": "./src/components/Footer/Footer.jsx",
+      "file": "js/main.js",
+      "publicPath": "public/js/main.js"
+    }
+  ],
+  "./Footer.scss": [
+    {
+      "id": "./src/components/Footer/Footer.scss",
+      "name": "./src/components/Footer/Footer.scss",
+      "file": "js/main.js",
+      "publicPath": "public/js/main.js"
+    }
+  ],
+  "./components/PageNotFound/PageNotFound": [
+    {
+      "id": "./src/components/PageNotFound/PageNotFound.jsx",
+      "name": "./src/components/PageNotFound/PageNotFound.jsx",
+      "file": "js/main.js",
+      "publicPath": "public/js/main.js"
+    }
+  ],
+  "./PageNotFound.scss": [
+    {
+      "id": "./src/components/PageNotFound/PageNotFound.scss",
+      "name": "./src/components/PageNotFound/PageNotFound.scss",
+      "file": "js/main.js",
+      "publicPath": "public/js/main.js"
+    }
+  ],
+  "../../../../constants/constants": [
+    {
+      "id": "./src/constants/constants.js",
+      "name": "./src/constants/constants.js",
+      "file": "js/main.js",
+      "publicPath": "public/js/main.js"
+    }
+  ],
+  "../src/modules/configure-store": [
+    {
+      "id": "./src/modules/configure-store.js",
+      "name": "./src/modules/configure-store.js",
+      "file": "js/main.js",
+      "publicPath": "public/js/main.js"
+    }
+  ],
+  "../modules": [
+    {
+      "id": "./src/modules/index.js",
+      "name": "./src/modules/index.js",
+      "file": "js/main.js",
+      "publicPath": "public/js/main.js"
+    }
+  ],
+  "../reducers": [
+    {
+      "id": "./src/reducers.js",
+      "name": "./src/reducers.js",
+      "file": "js/main.js",
+      "publicPath": "public/js/main.js"
+    }
+  ],
+  "./src/serverRenderer.js": [
+    {
+      "id": "./src/serverRenderer.js",
+      "name": "./src/serverRenderer.js",
+      "file": "js/main.js",
+      "publicPath": "public/js/main.js"
+    }
+  ],
+  "./style.scss": [
+    {
+      "id": "./src/style.scss",
+      "name": "./src/style.scss",
+      "file": "js/main.js",
+      "publicPath": "public/js/main.js"
+    }
+  ],
+  "undefined": [
+    {
+      "id": "axios",
+      "name": "axios",
+      "file": "js/main.js",
+      "publicPath": "public/js/main.js"
+    },
+    {
+      "id": "babel-polyfill",
+      "name": "babel-polyfill",
+      "file": "js/main.js",
+      "publicPath": "public/js/main.js"
+    },
+    {
+      "id": "isomorphic-fetch",
+      "name": "isomorphic-fetch",
+      "file": "js/main.js",
+      "publicPath": "public/js/main.js"
+    },
+    {
+      "id": "react",
+      "name": "react",
+      "file": "js/main.js",
+      "publicPath": "public/js/main.js"
+    },
+    {
+      "id": "react-dom/server",
+      "name": "react-dom/server",
+      "file": "js/main.js",
+      "publicPath": "public/js/main.js"
+    },
+    {
+      "id": "react-hot-loader",
+      "name": "react-hot-loader",
+      "file": "js/main.js",
+      "publicPath": "public/js/main.js"
+    },
+    {
+      "id": "react-loadable",
+      "name": "react-loadable",
+      "file": "js/main.js",
+      "publicPath": "public/js/main.js"
+    },
+    {
+      "id": "react-loadable/webpack",
+      "name": "react-loadable/webpack",
+      "file": "js/main.js",
+      "publicPath": "public/js/main.js"
+    },
+    {
+      "id": "react-redux",
+      "name": "react-redux",
+      "file": "js/main.js",
+      "publicPath": "public/js/main.js"
+    },
+    {
+      "id": "react-router-dom",
+      "name": "react-router-dom",
+      "file": "js/main.js",
+      "publicPath": "public/js/main.js"
+    },
+    {
+      "id": "redux",
+      "name": "redux",
+      "file": "js/main.js",
+      "publicPath": "public/js/main.js"
+    },
+    {
+      "id": "redux-saga",
+      "name": "redux-saga",
+      "file": "js/main.js",
+      "publicPath": "public/js/main.js"
+    },
+    {
+      "id": "redux-saga/effects",
+      "name": "redux-saga/effects",
+      "file": "js/main.js",
+      "publicPath": "public/js/main.js"
+    }
+  ],
+  "./Features/MainPage/MainPage": [
+    {
+      "id": "./src/Features/MainPage/MainPage.jsx",
+      "name": "./src/Features/MainPage/MainPage.jsx",
+      "file": "js/0.js",
+      "publicPath": "public/js/0.js"
+    }
+  ],
+  "./MainPage.scss": [
+    {
+      "id": "./src/Features/MainPage/MainPage.scss",
+      "name": "./src/Features/MainPage/MainPage.scss",
+      "file": "js/0.js",
+      "publicPath": "public/js/0.js"
+    }
+  ],
+  "./components/FilterBlock/FilterBlock": [
+    {
+      "id": "./src/Features/MainPage/components/FilterBlock/FilterBlock.jsx",
+      "name": "./src/Features/MainPage/components/FilterBlock/FilterBlock.jsx",
+      "file": "js/0.js",
+      "publicPath": "public/js/0.js"
+    }
+  ],
+  "../HeaderBlock/HeaderBlock": [
+    {
+      "id": "./src/Features/MainPage/components/HeaderBlock/HeaderBlock.jsx",
+      "name": "./src/Features/MainPage/components/HeaderBlock/HeaderBlock.jsx",
+      "file": "js/0.js",
+      "publicPath": "public/js/0.js"
+    }
+  ],
+  "./components/ChoiceBlock/ChoiceBlock": [
+    {
+      "id": "./src/Features/MainPage/components/HeaderBlock/components/ChoiceBlock/ChoiceBlock.jsx",
+      "name": "./src/Features/MainPage/components/HeaderBlock/components/ChoiceBlock/ChoiceBlock.jsx",
+      "file": "js/0.js",
+      "publicPath": "public/js/0.js"
+    }
+  ],
+  "./components/SearchBlock/SearchBlock": [
+    {
+      "id": "./src/Features/MainPage/components/HeaderBlock/components/SearchBlock/SearchBlock.jsx",
+      "name": "./src/Features/MainPage/components/HeaderBlock/components/SearchBlock/SearchBlock.jsx",
+      "file": "js/0.js",
+      "publicPath": "public/js/0.js"
+    }
+  ],
+  "../ResultBlock/ResultBlock": [
+    {
+      "id": "./src/Features/MainPage/components/ResultBlock/ResultBlock.jsx",
+      "name": "./src/Features/MainPage/components/ResultBlock/ResultBlock.jsx",
+      "file": "js/0.js",
+      "publicPath": "public/js/0.js"
+    }
+  ],
+  "../../../../../../components/Button/Button": [
+    {
+      "id": "./src/components/Button/Button.jsx",
+      "name": "./src/components/Button/Button.jsx",
+      "file": "js/0.js",
+      "publicPath": "public/js/0.js"
+    }
+  ],
+  "../../components/ErrorBoundary": [
+    {
+      "id": "./src/components/ErrorBoundary.jsx",
+      "name": "./src/components/ErrorBoundary.jsx",
+      "file": "js/0.js",
+      "publicPath": "public/js/0.js"
+    },
+    {
+      "id": "./src/components/ErrorBoundary.jsx",
+      "name": "./src/components/ErrorBoundary.jsx",
+      "file": "js/1.js",
+      "publicPath": "public/js/1.js"
+    }
+  ],
+  "../../components/HeaderLogo/HeaderLogo": [
+    {
+      "id": "./src/components/HeaderLogo/HeaderLogo.jsx",
+      "name": "./src/components/HeaderLogo/HeaderLogo.jsx",
+      "file": "js/0.js",
+      "publicPath": "public/js/0.js"
+    },
+    {
+      "id": "./src/components/HeaderLogo/HeaderLogo.jsx",
+      "name": "./src/components/HeaderLogo/HeaderLogo.jsx",
+      "file": "js/1.js",
+      "publicPath": "public/js/1.js"
+    }
+  ],
+  "./HeaderLogo.scss": [
+    {
+      "id": "./src/components/HeaderLogo/HeaderLogo.scss",
+      "name": "./src/components/HeaderLogo/HeaderLogo.scss",
+      "file": "js/0.js",
+      "publicPath": "public/js/0.js"
+    },
+    {
+      "id": "./src/components/HeaderLogo/HeaderLogo.scss",
+      "name": "./src/components/HeaderLogo/HeaderLogo.scss",
+      "file": "js/1.js",
+      "publicPath": "public/js/1.js"
+    }
+  ],
+  "../../components/MovieItemsBlock/MovieItemsBlock": [
+    {
+      "id": "./src/components/MovieItemsBlock/MovieItemsBlock.jsx",
+      "name": "./src/components/MovieItemsBlock/MovieItemsBlock.jsx",
+      "file": "js/0.js",
+      "publicPath": "public/js/0.js"
+    },
+    {
+      "id": "./src/components/MovieItemsBlock/MovieItemsBlock.jsx",
+      "name": "./src/components/MovieItemsBlock/MovieItemsBlock.jsx",
+      "file": "js/1.js",
+      "publicPath": "public/js/1.js"
+    }
+  ],
+  "./components/MovieItem": [
+    {
+      "id": "./src/components/MovieItemsBlock/components/MovieItem.jsx",
+      "name": "./src/components/MovieItemsBlock/components/MovieItem.jsx",
+      "file": "js/0.js",
+      "publicPath": "public/js/0.js"
+    },
+    {
+      "id": "./src/components/MovieItemsBlock/components/MovieItem.jsx",
+      "name": "./src/components/MovieItemsBlock/components/MovieItem.jsx",
+      "file": "js/1.js",
+      "publicPath": "public/js/1.js"
+    }
+  ],
+  "../../components/NoFilmsFound/NoFilmsFound": [
+    {
+      "id": "./src/components/NoFilmsFound/NoFilmsFound.jsx",
+      "name": "./src/components/NoFilmsFound/NoFilmsFound.jsx",
+      "file": "js/0.js",
+      "publicPath": "public/js/0.js"
+    }
+  ],
+  "./NoFilmsFound.scss": [
+    {
+      "id": "./src/components/NoFilmsFound/NoFilmsFound.scss",
+      "name": "./src/components/NoFilmsFound/NoFilmsFound.scss",
+      "file": "js/0.js",
+      "publicPath": "public/js/0.js"
+    }
+  ],
+  "./Features/DescriptionPage/DescriptionPage": [
+    {
+      "id": "./src/Features/DescriptionPage/DescriptionPage.jsx",
+      "name": "./src/Features/DescriptionPage/DescriptionPage.jsx",
+      "file": "js/1.js",
+      "publicPath": "public/js/1.js"
+    }
+  ],
+  "./DescriptionPage.scss": [
+    {
+      "id": "./src/Features/DescriptionPage/DescriptionPage.scss",
+      "name": "./src/Features/DescriptionPage/DescriptionPage.scss",
+      "file": "js/1.js",
+      "publicPath": "public/js/1.js"
+    }
+  ],
+  "./components/HeaderInfo/HeaderInfo": [
+    {
+      "id": "./src/Features/DescriptionPage/components/HeaderInfo/HeaderInfo.jsx",
+      "name": "./src/Features/DescriptionPage/components/HeaderInfo/HeaderInfo.jsx",
+      "file": "js/1.js",
+      "publicPath": "public/js/1.js"
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+.b-not-found {
+  min-height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .b-not-found__wrap {
+    font-size: 30px; }
+
+
+.main-page {
+  max-width: 1000px;
+  margin: 0 auto; }
+  .main-page__header {
+    padding: 10px 30px;
+    position: relative; }
+    .main-page__header:before {
+      content: "";
+      background: url("https://pluggedin.ru/images/avengers-infinity-war-mash-up-mcu-marvel-2018-1024x576-bigTopImage.jpg");
+      background-size: 100% 100%;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      position: absolute;
+      z-index: -2; }
+    .main-page__header:after {
+      content: "";
+      background: grey;
+      background-size: 100% 100%;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      position: absolute;
+      z-index: -1;
+      opacity: 0.3; }
+  .main-page__result {
+    padding: 10px 30px;
+    background-color: lightgrey; }
+
+.b-header__logo-wrap {
+  color: red;
+  font-weight: bold; }
+
+.b-header__search {
+  color: white; }
+  .b-header__search-title {
+    display: block;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-size: 18px; }
+  .b-header__search-input {
+    width: 100%;
+    color: white;
+    background: black;
+    border: 0;
+    border-bottom: 2px solid red;
+    padding: 10px 20px; }
+
+.b-header__choice {
+  color: white;
+  padding: 10px 0;
+  text-transform: uppercase; }
+
+.b-header__button {
+  background: #ccc;
+  pointer-events: auto; }
+  .b-header__button:hover {
+    cursor: pointer; }
+
+.b-header__button_active {
+  background: aqua;
+  pointer-events: none; }
+
+.choice-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+  .choice-flex__item:first-child {
+    display: flex;
+    width: 210px;
+    justify-content: space-between;
+    align-items: center; }
+  .choice-flex__item button:hover {
+    outline: none; }
+
+.b-result {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+  .b-result__sort-wrap {
+    display: flex;
+    width: 210px;
+    justify-content: space-between;
+    align-items: center; }
+  .b-result__sort-item {
+    color: #000;
+    pointer-events: auto; }
+    .b-result__sort-item:hover {
+      cursor: pointer; }
+  .b-result__sort-item_active {
+    color: red;
+    pointer-events: none; }
+
+.movie-items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; }
+
+.b-item {
+  max-width: 300px;
+  margin-top: 30px; }
+  .b-item__img-wrap {
+    margin-bottom: 10px; }
+  .b-item__img-pic {
+    width: 100%; }
+  .b-item__title-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+  .b-item__title-text {
+    color: black;
+    font-weight: bold; }
+  .b-item__title-year {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 3px; }
+  .b-item__ganre-wrap {
+    color: darkgray; }
+

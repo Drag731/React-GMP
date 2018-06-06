@@ -1,0 +1,36 @@
+
+.description-page {
+  max-width: 1000px;
+  margin: 0 auto; }
+  .description-page__header {
+    padding: 10px 30px;
+    background-color: #35eacf; }
+  .description-page__genre-result {
+    padding: 10px 30px;
+    background-color: lightgrey; }
+
+.b-header__logo-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+
+.b-header-info {
+  display: flex; }
+  .b-header-info__img {
+    max-width: 300px;
+    margin-right: 30px; }
+    .b-header-info__img-pic {
+      width: 100%; }
+  .b-header-info__about {
+    padding: 10px 15px; }
+    .b-header-info__about-title {
+      font-size: 30px;
+      margin-bottom: 10px;
+      color: red; }
+    .b-header-info__about-year {
+      color: white;
+      padding: 15px 0; }
+
+.b-year__release-date {
+  margin-right: 30px; }
+

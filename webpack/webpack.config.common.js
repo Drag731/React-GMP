@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const { ReactLoadablePlugin  } = require('react-loadable/webpack');
 
 const isDevMod = process.env.NODE_ENV === 'development';
 
@@ -9,6 +10,8 @@ module.exports = {
     output: {
         filename: 'js/[name].js',
         path: path.resolve('./public'),
+        chunkFilename: 'js/[name].js',
+        publicPath: 'public/'
     },
 
     resolve: {
@@ -24,8 +27,22 @@ module.exports = {
             },
         ],
     },
-
+    optimization: {
+        splitChunks: {
+            minChunks: Infinity,
+            cacheGroups: {
+                commons: {
+                    test: /[\\/]node_modules[\\/]/,
+                    name: 'vendor',
+                    chunks: 'all'
+                }
+            }
+        }
+    },
     plugins: [
         isDevMod ? new webpack.NamedModulesPlugin() : new webpack.HashedModuleIdsPlugin(),
+        new ReactLoadablePlugin({
+            filename: './public/react-loadable.json',
+        }),
     ],
 };

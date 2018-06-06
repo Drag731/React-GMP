@@ -4,14 +4,26 @@ import React from 'react';
 import { hot } from 'react-hot-loader';
 import { Route, Switch } from 'react-router-dom';
 import {Provider} from 'react-redux';
+import Loadable from 'react-loadable';
 
-
-import MainPage from './Features/MainPage/MainPage';
-import DescriptionPage from './Features/DescriptionPage/DescriptionPage';
+// import MainPage from './Features/MainPage/MainPage';
+// import DescriptionPage from './Features/DescriptionPage/DescriptionPage';
 import Footer from './components/Footer/Footer'
 import PageNotFound from './components/PageNotFound/PageNotFound'
 
 import './style.scss'
+
+const Loading = () => <div>Loading...</div>;
+
+const MainPage = Loadable({
+    loader: () => import('./Features/MainPage/MainPage'),
+    loading: Loading,
+});
+
+const DescriptionPage = Loadable({
+    loader: () => import('./Features/DescriptionPage/DescriptionPage'),
+    loading: Loading,
+});
 
 const Root = ({ Router, location, context, store }) => (
     <Provider store={store}>
