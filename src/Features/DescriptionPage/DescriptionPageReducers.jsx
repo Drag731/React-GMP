@@ -1,6 +1,5 @@
 import {
     ADD_MOVIE,
-    CHANGE_LOADING,
     FETCH_MOVIE
 } from './DescriptionPageActions';
 
@@ -42,17 +41,11 @@ const DescriptionPageReducer = (state = initialState, action) => {
             };
         }
 
-        case CHANGE_LOADING: {
-            return {
-                ...state,
-                isLoadingMovie: true
-            };
-        }
-
         case GO_TO_DESCRIPTION: {
             return {
                 ...state,
                 isLoadingMovie: true,
+                movies: []
             };
         }
 

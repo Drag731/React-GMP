@@ -8,8 +8,8 @@ module.exports = merge(common, {
     entry: './src/serverRenderer.js',
     externals: [nodeExternals()],
     output: {
-        // filename: 'js/serverRenderer.js',
-        libraryTarget: 'commonjs2'
+        filename: 'js/serverRenderer.js',
+        libraryTarget: 'commonjs2',
     },
     module: {
         rules: [

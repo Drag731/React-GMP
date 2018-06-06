@@ -1,12 +1,10 @@
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { StaticRouter } from 'react-router-dom';
-import { flushChunkNames } from 'react-universal-component/server';
-import flushChunks from 'webpack-flush-chunks';
 import Root from './Root';
 import configureStore from '../src/modules/configure-store';
 
-function renderHTML(html, preloadedState, js, styles, cssHash, scripts, stylesheets) {
+function renderHTML(html, preloadedState) {
     return `
       <!doctype html>
       <html>
@@ -14,7 +12,7 @@ function renderHTML(html, preloadedState, js, styles, cssHash, scripts, styleshe
           <meta charset=utf-8>
           <title>React Server Side Rendering</title>
           <link rel="icon" href="data:;base64,iVBORw0KGgo=">
-          ${styles}
+          ${process.env.NODE_ENV === 'development' ? '' : '<link href="/css/main.css" rel="stylesheet" type="text/css">'}
         </head>
         <body>
           <div id="root">${html}</div>
@@ -23,15 +21,13 @@ function renderHTML(html, preloadedState, js, styles, cssHash, scripts, styleshe
             // http://redux.js.org/docs/recipes/ServerRendering.html#security-considerations
             window.PRELOADED_STATE = ${JSON.stringify(preloadedState).replace(/</g, '\\\u003c')}
           </script>
-          
-          ${cssHash}
-          ${js}
+          <script src="/js/main.js"></script>
         </body>
       </html>
   `;
 }
 
-export default function serverRenderer({ clientStats }) {
+export default function serverRenderer() {
     return (req, res) => {
         const store = configureStore();
         // This context object contains the results of the render
@@ -49,19 +45,6 @@ export default function serverRenderer({ clientStats }) {
         store.runSaga().done.then(() => {
             const htmlString = renderToString(root);
 
-            const chunkNames = flushChunkNames();
-            const {
-                js,
-                styles,
-                cssHash,
-                scripts,
-                stylesheets
-            } = flushChunks(clientStats, {chunkNames});
-
-            console.log('Dynamic Chunk Names Rendered', chunkNames);
-            console.log('Scripts', scripts);
-            console.log('Styles', stylesheets);
-
             // context.url will contain the URL to redirect to if a <Redirect> was used
             if (context.url) {
                 res.writeHead(302, {
@@ -73,7 +56,7 @@ export default function serverRenderer({ clientStats }) {
 
             const preloadedState = store.getState();
 
-            res.send(renderHTML(htmlString, preloadedState, js, styles, cssHash, scripts, stylesheets));
+            res.send(renderHTML(htmlString, preloadedState));
         });
 
         // Do first render, starts initial actions.

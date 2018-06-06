@@ -7,7 +7,6 @@
     ],
     "plugins": [
         "react-hot-loader/babel",
-        "transform-class-properties",
-        "universal-import"
+        "transform-class-properties"
     ]
 }

@@ -8,7 +8,7 @@ import MovieItemsBlock from '../../components/MovieItemsBlock/MovieItemsBlock';
 import HeaderInfo from './components/HeaderInfo/HeaderInfo';
 import PageNotFound from '../../components/PageNotFound/PageNotFound';
 
-import { changeIsLoading, goToSearch, fetchMovie } from './DescriptionPageActions';
+import { goToSearch, fetchMovie } from './DescriptionPageActions';
 
 import { getMovie, getMovies, getGenre, getIsLoadingMovie } from './DescriptionPageReducers';
 
@@ -24,7 +24,6 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators ({
-    changeIsLoading: () => changeIsLoading(),
     goToSearch: () => goToSearch(),
     fetchMovie: (id) => fetchMovie(id),
     fetchMovies: () => fetchMovies(),
@@ -36,14 +35,15 @@ class DescriptionPage extends React.Component {
     }
 
     componentWillMount() {
-        this.props.fetchMovie(this.props.match.params.id);
-        this.props.fetchMovies()
+        if (!this.props.movies.length) {
+            this.props.fetchMovie(this.props.match.params.id);
+            this.props.fetchMovies()
+        }
     }
 
     componentWillReceiveProps(nextProps) {
         const {id} = nextProps.match.params;
         if(id && this.props.match.params.id !== id) {
-            this.props.changeIsLoading();
             this.props.fetchMovie(id);
             this.props.fetchMovies(`?${nextProps.genres[0]}`)
         }
@@ -52,11 +52,11 @@ class DescriptionPage extends React.Component {
     handleGoSearchPage = () => { this.props.goToSearch()};
 
     render() {
-        const { movie } = this.props;
+        const { movie, isLoadingMovie } = this.props;
         return (
             <ErrorBoundary>
                 <React.Fragment>
-                    {this.props.isLoadingMovie ?
+                    {isLoadingMovie ?
                         "Loading..." :
                         movie.genres ?
                         <div className="description-page container">
