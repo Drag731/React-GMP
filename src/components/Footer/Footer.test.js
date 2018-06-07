@@ -1,23 +1,21 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import {shallow, configure} from 'enzyme';
+import { shallow, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-import Footer from './Footer.jsx'
+import Footer from './Footer.jsx';
 
 configure({ adapter: new Adapter() });
 
 describe('<Footer  />', () => {
-    it('renders correctly', () => {
-        const tree = renderer
-            .create(<Footer />)
-            .toJSON();
-        expect(tree).toMatchSnapshot();
-    });
-    it('Renders footer component', () => {
-        const tree = shallow(
-            <Footer />
-        );
-        expect(tree.find('div.footer')).toHaveLength(1);
-    });
+  it('renders correctly', () => {
+    const tree = renderer
+      .create(<Footer />)
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+  it('Renders footer component', () => {
+    const tree = shallow(<Footer />);
+    expect(tree.find('div.footer')).toHaveLength(1);
+  });
 });

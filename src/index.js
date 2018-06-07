@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Root from './Root';
 import { BrowserRouter } from 'react-router-dom';
-import configureStore from './modules/configure-store.js';
+
+import Root from './Root';
+import configureStore from './modules/configure-store';
 
 const preloadedState = window.PRELOADED_STATE;
 delete window.PRELOADED_STATE;
@@ -16,8 +17,5 @@ const root = (
     />
 );
 
-ReactDOM.hydrate (
-    root, document.getElementById('root')
-);
-
+ReactDOM.hydrate(root, document.getElementById('root'));
 

@@ -5,7 +5,7 @@ import FilterBlockReducer from './Features/MainPage/components/FilterBlock/Filte
 import DescriptionPageReducer from './Features/DescriptionPage/DescriptionPageReducers';
 
 export default combineReducers({
-    movies: MainPageReducer,
-    filter: FilterBlockReducer,
-    description: DescriptionPageReducer
+  movies: MainPageReducer,
+  filter: FilterBlockReducer,
+  description: DescriptionPageReducer,
 });

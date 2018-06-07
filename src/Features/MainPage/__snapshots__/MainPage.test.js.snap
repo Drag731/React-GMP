@@ -7,6 +7,7 @@ exports[`<MainPageTest  /> Renders DescriptionPageTest component snapshot2 1`] =
       className="main-page container"
     >
       <Connect(FilterBlock)
+        fetchMovies={[MockFunction]}
         goToDescription={[MockFunction]}
         isLoadingMovies={false}
         location={
@@ -15,18 +16,6 @@ exports[`<MainPageTest  /> Renders DescriptionPageTest component snapshot2 1`] =
           }
         }
         movies={Array []}
-        receiveMoviesDB={
-          [MockFunction] {
-            "calls": Array [
-              Array [
-                "a",
-              ],
-              Array [
-                "a",
-              ],
-            ],
-          }
-        }
         total={0}
       />
       <NoFilmsFound />
@@ -42,6 +31,7 @@ exports[`<MainPageTest  /> Renders DescriptionPageTest component snapshot3 1`] =
       className="main-page container"
     >
       <Connect(FilterBlock)
+        fetchMovies={[MockFunction]}
         goToDescription={[MockFunction]}
         isLoadingMovies={false}
         location={
@@ -50,21 +40,6 @@ exports[`<MainPageTest  /> Renders DescriptionPageTest component snapshot3 1`] =
           }
         }
         movies={Array []}
-        receiveMoviesDB={
-          [MockFunction] {
-            "calls": Array [
-              Array [
-                "a",
-              ],
-              Array [
-                "a",
-              ],
-              Array [
-                "a",
-              ],
-            ],
-          }
-        }
         total={3000}
       />
       <MovieItemsBlock
@@ -83,6 +58,7 @@ exports[`<MainPageTest  /> Renders MainPageTest component 1`] = `
       className="main-page container"
     >
       <Connect(FilterBlock)
+        fetchMovies={[MockFunction]}
         goToDescription={[MockFunction]}
         isLoadingMovies={true}
         location={
@@ -91,15 +67,6 @@ exports[`<MainPageTest  /> Renders MainPageTest component 1`] = `
           }
         }
         movies={Array []}
-        receiveMoviesDB={
-          [MockFunction] {
-            "calls": Array [
-              Array [
-                "a",
-              ],
-            ],
-          }
-        }
         total={0}
       />
       Loading...

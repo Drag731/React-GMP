@@ -22,6 +22,7 @@ exports[`<FilterBlockTest  /> Renders FilterBlockTest component 1`] = `
 
 exports[`<FilterBlockTest  /> Renders FilterBlockTest component snapshot2 1`] = `
 <FilterBlock
+  fetchMovies={[MockFunction]}
   handleEnterPress={[MockFunction]}
   handleSearch={
     [MockFunction] {
@@ -42,18 +43,6 @@ exports[`<FilterBlockTest  /> Renders FilterBlockTest component snapshot2 1`] = 
     }
   }
   query=""
-  receiveMoviesDB={
-    [MockFunction] {
-      "calls": Array [
-        Array [
-          "a",
-        ],
-        Array [
-          "a",
-        ],
-      ],
-    }
-  }
   search=""
   searchBy="title"
   setSearchBy={

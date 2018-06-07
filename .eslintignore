@@ -1,0 +1,10 @@
+node_modules/
+dist/
+webpack.*
+server/
+__tests__/
+public/
+coverage/
+webpack/
+*.test.js
+src/serverRenderer.js
