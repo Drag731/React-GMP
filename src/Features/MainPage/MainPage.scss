@@ -1,0 +1,157 @@
+.main-page {
+    max-width: 1000px;
+    margin:0 auto;
+    &__header {
+        padding: 10px 30px;
+        position: relative;
+        &:before {
+            content: "";
+            background: url('https://pluggedin.ru/images/avengers-infinity-war-mash-up-mcu-marvel-2018-1024x576-bigTopImage.jpg');
+            background-size:100% 100%;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            position: absolute;
+            z-index: -2;
+        }
+        &:after {
+            content: "";
+            background: grey;
+            background-size:100% 100%;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            position: absolute;
+            z-index: -1;
+            opacity: 0.3;
+        }
+    }
+    &__result {
+        padding: 10px 30px;
+        background-color: lightgrey;
+    }
+}
+
+.b-header {
+    &__logo-wrap {
+        color: red;
+        font-weight: bold;
+    }
+    &__search {
+        color: white;
+        &-title {
+            display: block;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            font-size: 18px;
+        }
+        &-input {
+            width: 100%;
+            color: white;
+            background: black;
+            border: 0;
+            border-bottom: 2px solid red;
+            padding: 10px 20px;
+        }
+    }
+    &__choice {
+        color: white;
+        padding: 10px 0;
+        text-transform: uppercase;
+    }
+    &__button {
+        background: #ccc;
+        pointer-events: auto;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    &__button_active {
+        background: aqua;
+        pointer-events:none;
+    }
+}
+
+.choice-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &__item {
+        &:first-child {
+            display: flex;
+            width: 210px;
+            justify-content: space-between;
+            align-items: center;
+        }
+        button {
+            &:hover {
+                outline: none;
+            }
+        }
+    }
+}
+
+.b-result {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &__sort-wrap {
+        display: flex;
+        width: 210px;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__sort-item {
+        color: #000;
+        pointer-events: auto;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    &__sort-item_active {
+        color: red;
+        pointer-events:none;
+    }
+}
+
+.movie-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.b-item {
+    max-width: 300px;
+    margin-top: 30px;
+    &__img {
+        &-wrap {
+            margin-bottom: 10px;
+        }
+        &-pic {
+            width: 100%;
+        }
+    }
+    &__title {
+        &-wrap {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        &-text {
+            color: black;
+            font-weight: bold;
+        }
+        &-year {
+            border: 1px solid black;
+            border-radius: 5px;
+            padding: 3px;
+        }
+    }
+    &__ganre {
+        &-wrap {
+            color: darkgray;
+        }
+    }
+}

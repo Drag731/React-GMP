@@ -1,26 +1,18 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React, { Component, Fragment } from 'react';
+
 import './App.css';
-import { createElement } from "./examples/CreateElement"
-import { FuncComponent } from "./examples/FuncComponent"
-import { ReactComponent } from "./examples/ReactComponent"
-import { ReactPureComponent } from "./examples/ReactPureComponent"
+import MainPage from './Features/MainPage/MainPage'
+import Footer from './components/Footer/Footer'
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        {createElement}
-        <FuncComponent/>
-        <ReactComponent/>
-        <ReactPureComponent/>
-      </div>
-    );
-  }
+    render() {
+        return (
+            <Fragment>
+                <MainPage />
+                <Footer/>
+            </Fragment>
+        );
+    }
 }
 
 export default App;
