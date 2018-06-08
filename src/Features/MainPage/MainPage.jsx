@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+// @flow
+import * as React from 'react';
 import { getMovies } from '../../api/movies'
 
 import MovieItemsBlock from '../../components/MovieItemsBlock/MovieItemsBlock';
@@ -6,8 +7,25 @@ import HeaderBlock from './components/HeaderBlock/HeaderBlock'
 
 import './MainPage.css'
 
-class MainPage extends Component {
-    constructor(props) {
+type Props = { };
+
+type State = {
+    movies: {
+        id: number,
+        poster_path: string,
+        title: string,
+        release_date: number,
+        genres: Array<string>
+    }[],
+    total: number,
+    search: string,
+    ratingSort: boolean,
+    dateSort: boolean,
+    isLoadingMovies: boolean
+};
+
+class MainPage extends React.Component<Props, State> {
+    constructor(props: {}) {
         super(props);
 
         this.state = {
@@ -27,12 +45,22 @@ class MainPage extends Component {
     }
 
     componentDidMount() {
-        this.loadMovies();
+        this.loadMovies(this.state.search);
     }
 
-    loadMovies(q) {
+    loadMovies: (q: string) => void;
+    loadMovies(q: string) {
         return getMovies(q)
-            .then((res) => {
+            .then((res: {
+                data: {
+                    id: number,
+                    poster_path: string,
+                    title: string,
+                    release_date: number,
+                    genres: Array<string>
+                }[],
+                total: number
+            }) => {
                 return (
                     this.setState({
                         movies: res.data,
@@ -50,21 +78,25 @@ class MainPage extends Component {
             })
     }
 
-    handleSearch(event) {
+    handleSearch: (event: {target: {value: string}}) => void;
+    handleSearch(event: {target: {value: string}}) {
         this.setState({
             search: event.target.value
         });
     }
 
+    handleSearchButton: () => void;
     handleSearchButton() {
         this.loadMovies(`?search=${this.state.search}&searchBy=title`)
     }
 
+    handleTitleSearch: () => void;
     handleTitleSearch() {
         if (!this.state.search) return;
         this.loadMovies(`?search=${this.state.search}&searchBy=title`)
     }
 
+    handleDirectorSearch: () => void;
     handleDirectorSearch() {
         if (!this.state.search) return;
         const genres = this.state.search[0].toUpperCase() + this.state.search.slice(1);
