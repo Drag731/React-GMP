@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+// @flow
+import * as React from 'react';
 import { connect } from 'react-redux';
 
 import ErrorBoundary from '../../components/ErrorBoundary';
@@ -10,7 +11,14 @@ import { goToDescription } from './MainPageActions';
 
 import { getData, getTotal, getIsLoadingMovies } from './MainPageReducers';
 
-import './MainPage.scss'
+import './MainPage.scss';
+
+type Props = {
+    movies: {}[],
+    total: number,
+    isLoadingMovies: boolean,
+    goToDescription: () => {}
+};
 
 const mapStateToProps = state => ({
     movies: getData(state),
@@ -22,10 +30,7 @@ const mapDispatchToProps = {
     goToDescription: () => goToDescription()
 };
 
-class MainPage extends React.Component {
-    constructor(props) {
-        super(props);
-    }
+class MainPage extends React.Component<Props> {
 
     handleGoToDescriptionPage = () => { this.props.goToDescription()};
 

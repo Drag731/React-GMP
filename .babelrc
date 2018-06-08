@@ -3,7 +3,8 @@
         "stage-2",
         "env",
         "react",
-        "es2015"
+        "es2015",
+        "flow"
     ],
     "plugins": [
         "react-hot-loader/babel",
