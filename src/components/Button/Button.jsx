@@ -6,10 +6,14 @@ type Props = {
     children: string,
 };
 
+const style = {
+    color: "red"
+};
+
 const Button = (props: Props) => {
     const {handler, children} = props;
     return (
-        <button onClick={handler}>
+        <button style={style} onClick={handler}>
             {children}
         </button>
     )
