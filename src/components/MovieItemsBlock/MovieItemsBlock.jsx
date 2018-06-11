@@ -3,6 +3,8 @@ import React from 'react';
 
 import MovieItem from './components/MovieItem'
 
+import './MovieItemsBlock.css'
+
 type Props = {
     movies: {
         id: number,

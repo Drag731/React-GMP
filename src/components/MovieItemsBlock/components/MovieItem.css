@@ -1,0 +1,20 @@
+.b-item {
+  max-width: 300px;
+  margin-top: 30px; }
+  .b-item__img-wrap {
+    margin-bottom: 10px; }
+  .b-item__img-pic {
+    width: 100%; }
+  .b-item__title-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+  .b-item__title-text {
+    color: black;
+    font-weight: bold; }
+  .b-item__title-year {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 3px; }
+  .b-item__ganre-wrap {
+    color: darkgray; }

@@ -1,6 +1,8 @@
 // @flow
 import React from 'react';
 
+import './MovieItem.css'
+
 type Props = {
     item: {
         poster_path: string,

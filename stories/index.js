@@ -1,12 +1,4 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
-import Button from '../src/components/Button/Button';
-
-storiesOf('Button', module)
-    .add('with text', () => (
-        <Button onClick={action('clicked')}>My Button</Button>
-    ))
-    .add('with some emoji', () => (
-        <Button onClick={action('clicked')}><span role="img" aria-label="so cool">😀 😎 👍 💯</span></Button>
-    ));
+import Button from '../src/components/Button/Button.story';
+import Footer from '../src/components/Footer/Footer.story';
+import HeaderLogo from '../src/components/HeaderLogo/HeaderLogo.story';
+import MovieItem from '../src/components/MovieItemsBlock/components/MovieItem.story';

@@ -29,10 +29,6 @@
     padding: 10px 30px;
     background-color: lightgrey; }
 
-.b-header__logo-wrap {
-  color: red;
-  font-weight: bold; }
-
 .b-header__search {
   color: white; }
   .b-header__search-title {
@@ -92,29 +88,3 @@
   .b-result__sort-item_active {
     color: red;
     pointer-events: none; }
-
-.movie-items {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between; }
-
-.b-item {
-  max-width: 300px;
-  margin-top: 30px; }
-  .b-item__img-wrap {
-    margin-bottom: 10px; }
-  .b-item__img-pic {
-    width: 100%; }
-  .b-item__title-wrap {
-    display: flex;
-    justify-content: space-between;
-    align-items: center; }
-  .b-item__title-text {
-    color: black;
-    font-weight: bold; }
-  .b-item__title-year {
-    border: 1px solid black;
-    border-radius: 5px;
-    padding: 3px; }
-  .b-item__ganre-wrap {
-    color: darkgray; }
