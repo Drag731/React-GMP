@@ -1,9 +1,8 @@
 // @flow
 import React from 'react';
+import injectSheet from 'react-jss'
 
 import MovieItem from './components/MovieItem'
-
-import './MovieItemsBlock.css'
 
 type Props = {
     movies: {
@@ -12,13 +11,22 @@ type Props = {
         title: string,
         release_date: number,
         genres: Array<string>
-    }[]
+    }[],
+    classes: {'movie-items': {}}
+};
+
+const styles = {
+    'movie-items' : {
+        display: 'flex',
+        'flex-wrap': 'wrap',
+        'justify-content': 'space-between'
+    }
 };
 
 const MovieItemsBlock = (props: Props) => {
-    const {movies} = props;
+    const {movies, classes} = props;
     return (
-        <div className="movie-items">
+        <div className={classes['movie-items']}>
             {movies && movies.map(item => (
                 <MovieItem
                     item={item}
@@ -29,4 +37,5 @@ const MovieItemsBlock = (props: Props) => {
     )
 };
 
-export default MovieItemsBlock;
+const StyledMovieItemsBlock = injectSheet(styles)(MovieItemsBlock);
+export default StyledMovieItemsBlock;

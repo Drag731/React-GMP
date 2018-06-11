@@ -1,13 +1,22 @@
 import React from 'react';
+import injectSheet from 'react-jss'
 
-import './HeaderLogo.css'
+const styles = {
+    'b-header__logo-wrap': {
+    },
+    'b-header__logo-text' : {
+        color: 'red',
+        fontWeight: 'bold'
+    }
+};
 
-const HeaderLogo = () => (
-    <div className="b-header__logo-wrap">
-        <h1 className="b-header__logo-text">
+const HeaderLogo = ({classes}) => (
+    <div className={classes['b-header__logo-wrap']}>
+        <h1 className={classes['b-header__logo-text']}>
             Filmzilla
         </h1>
     </div>
 );
 
-export default HeaderLogo;
+const StyledHeaderLogo = injectSheet(styles)(HeaderLogo);
+export default StyledHeaderLogo;

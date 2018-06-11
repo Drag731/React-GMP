@@ -65,7 +65,7 @@
   align-items: center; }
   .choice-flex__item:first-child {
     display: flex;
-    width: 210px;
+    width: 220px;
     justify-content: space-between;
     align-items: center; }
   .choice-flex__item button:hover {

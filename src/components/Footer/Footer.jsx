@@ -1,13 +1,25 @@
 import React from 'react';
+import injectSheet from 'react-jss'
 
-import './Footer.css'
+const styles = {
+    footer: {
+        backgroundColor: 'black',
+        margin: '30px auto 0',
+        maxWidth: '1000px'
+    },
+    footer__wrap : {
+        padding: '15px 30px',
+        color: 'red'
+    }
+};
 
-const Footer = () => (
-    <div className="footer">
-        <div className="footer__wrap">
-            <span className="footer__text">Filmzilla</span>
+const Footer = ({classes}) => (
+    <div className={classes.footer}>
+        <div className={classes.footer__wrap}>
+            <span>Filmzilla</span>
         </div>
     </div>
 );
 
-export default Footer;
+const StyledFooter = injectSheet(styles)(Footer);
+export default StyledFooter;
