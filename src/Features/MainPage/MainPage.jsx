@@ -1,5 +1,6 @@
 // @flow
 import * as React from 'react';
+import { List, Record } from 'immutable';
 import { getMovies } from '../../api/movies'
 
 import MovieItemsBlock from '../../components/MovieItemsBlock/MovieItemsBlock';
@@ -9,14 +10,24 @@ import './MainPage.css'
 
 type Props = { };
 
+const mainPageRecord = Record(({
+    id: 0,
+    poster_path: '',
+    title: '',
+    release_date: 0,
+    genres: []
+}: {
+    id: number,
+    poster_path: string,
+    title: string,
+    release_date: number,
+    genres: Array<string>
+}));
+
+const mainPageRecordInstance = mainPageRecord();
+
 type State = {
-    movies: {
-        id: number,
-        poster_path: string,
-        title: string,
-        release_date: number,
-        genres: Array<string>
-    }[],
+    movies: List<typeof mainPageRecordInstance>,
     total: number,
     search: string,
     ratingSort: boolean,
@@ -29,7 +40,7 @@ class MainPage extends React.Component<Props, State> {
         super(props);
 
         this.state = {
-            movies: [],
+            movies: List(),
             total: 0,
             search: "",
             ratingSort: true,
@@ -63,7 +74,7 @@ class MainPage extends React.Component<Props, State> {
             }) => {
                 return (
                     this.setState({
-                        movies: res.data,
+                        movies: List(res.data),
                         total: res.total
                     })
                 )
